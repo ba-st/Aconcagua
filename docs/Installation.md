@@ -36,4 +36,11 @@ baseline: spec
 		do: [ self setUpDependencies: spec.
 			spec package: 'My-Package' with: [ spec requires: #('Aconcagua') ] ]
 ```
+## Platform Compatibility
+
+| Pharo version | Aconcagua version |
+| ----------- | ------------- |
+| Previous to 6.0 | Go to https://github.com/mtaborda/aconcagua |
+| 6.0 | Use version 6.0.0 |
+| 6.1 or 7.0 | Use version 7.0.0 |
 
