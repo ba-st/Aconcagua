@@ -1,10 +1,10 @@
-#Aconcagua
+# Aconcagua
 
 [![GitHub release](https://img.shields.io/github/release/ba-st/Aconcagua.svg)](https://github.com/ba-st/Aconcagua/releases/latest)
 [![Build Status](https://travis-ci.org/ba-st/Aconcagua.svg?branch=development)](https://travis-ci.org/ba-st/Aconcagua)
 [![Coverage Status](https://coveralls.io/repos/github/ba-st/Aconcagua/badge.svg?branch=development)](https://coveralls.io/github/ba-st/Aconcagua?branch=development)
 
-> *Named in honour to [Aconcagua](https://en.wikipedia.org/wiki/Aconcagua), the highest mountaing in both the southern and western hemispheres. It is located in the Andes, in the Mendoza Pronvice, Argentina.*
+> *Named in honour to [Aconcagua](https://en.wikipedia.org/wiki/Aconcagua), the highest mountain in both the southern and western hemispheres. It is located in the Andes, in the Mendoza Pronvice, Argentina.*
 
 ## License
 - The code is licensed under [MIT](LICENSE).
