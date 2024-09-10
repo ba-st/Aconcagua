@@ -179,7 +179,15 @@ Measure >> compareGreaterThan: aNumber [
 	
 ]
 
-{ #category : 'converting' }
+{ #category : #compounding }
+Measure >> compoundingFormula [
+	
+	^ CompoundingFormula new
+		presentValue: self;
+		yourself
+]
+
+{ #category : #converting }
 Measure >> convertAmountToBaseUnit [
 	
 	^self unit convertAmountToBaseUnit: self amount
