@@ -1,0 +1,14 @@
+{
+	"Aconcagua" : {
+		"567d62d815b30004918211f84bee81fd2e93cbfc70ea943bdc16733162181da6" : "No se pueden sumar cantidades incomparables",
+		"942ff2791d78c534fee295e3f530a1623fc093f544ca7cb3ee1b1c78348aa101" : "No se pueden convertir unidades incomparables",
+		"449e0736c6650eab0199e6d00f8ef746330e1598856dd8237ad327815b74d2e7" : "No se puede crear un intervalo con un paso inválido",
+		"4936b906a2319ab0ca3093d017e0d17c110d04650226b952aa88472bd4abca4f" : "No se puede crear un intervalo con cantidades incomparables",
+		"377b5c54c0cbcca00c0b4baa7cf8e843f12ac6a1cb70740912ae17e2cecfc109" : "No se pueden restar cantidades incomparables",
+		"f96615022e34216603d422571d6071723c8b03ae94647b930aa9f680a955d3a0" : "No se pueden comparar unidades incomparables",
+		"88598c7e43fd585e982dc4898d06c5a2c3602e737ab10ee2fdc444d101c916bc" : "índice fuera de rango",
+		"bbd4ac968094a27f3cddbcb876dcb19e477d75865d0d1ef0e41e76723c144a39" : "No está soportado invertir grados Celsius",
+		"b7f590a5f4e7560c3a7e62d01a3af9fa89bde7f0b0fd29d32d4f351cda845519" : "No está soportado invertir grados Fahrenheit",
+		"2dbbb68b750c1f17270c7bf2efa44412b544166f29bc37a1a97dfeac316fed2d" : "El valor númerico de una cantidad debe ser un número"
+	}
+}

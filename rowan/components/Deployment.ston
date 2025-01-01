@@ -1,19 +1,26 @@
 RwSimpleProjectLoadComponentV2 {
   #name : 'Deployment',
-  #projectNames : [ 'Buoy' ],
+  #projectNames : [
+    'Buoy',
+    'SortFunctions'
+  ],
   #componentNames : [	],
   #packageNames : [
-    'Aconcagua-Core',
-    'Aconcagua-GS64-Extensions',
-    'Aconcagua-Extensions'
+    'Aconcagua-Arithmetic',
+    'Aconcagua-Arithmetic-GS64-Extensions',
+    'Aconcagua-Quantitative-Analysis',
+    'Aconcagua-Quantitative-Analysis-Extensions',
+    'Aconcagua-Quantitative-Analysis-GS64-Extensions'
   ],
   #conditionalPackageMapSpecs : {
     'gemstone' : {
       'allusers' : {
         #packageNameToPlatformPropertiesMap : {
-          'Aconcagua-Core' : { 'symbolDictName' : 'Aconcagua' },
-          'Aconcagua-GS64-Extensions' : { 'symbolDictName' : 'Aconcagua' },
-          'Aconcagua-Extensions' : { 'symbolDictName' : 'Globals' }
+          'Aconcagua-Arithmetic' : { 'symbolDictName' : 'Aconcagua' },
+          'Aconcagua-Arithmetic-GS64-Extensions' : { 'symbolDictName' : 'Aconcagua' },
+          'Aconcagua-Quantitative-Analysis' : { 'symbolDictName' : 'Aconcagua' },
+          'Aconcagua-Quantitative-Analysis-Extensions' : { 'symbolDictName' : 'Globals' },
+          'Aconcagua-Quantitative-Analysis-GS64-Extensions' : { 'symbolDictName' : 'Aconcagua' }
         }
       }
     }
