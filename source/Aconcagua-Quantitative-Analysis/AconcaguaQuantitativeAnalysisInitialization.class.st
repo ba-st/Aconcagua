@@ -12,6 +12,7 @@ Class {
 { #category : 'class initialization' }
 AconcaguaQuantitativeAnalysisInitialization class >> initialize [
 
+  <ignoreForCoverage>
   EscapingAlgorithm initialize.
   NaturalLanguageTranslator current ifNil: [
       NaturalLanguageTranslator current: PolyglotNaturalLanguageTranslator new ].

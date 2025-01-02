@@ -119,6 +119,15 @@ SummationTest >> testGreaterThanEquals [
 ]
 
 { #category : 'tests - magnitude' }
+SummationTest >> testIsDimensionless [
+
+  | sum |
+  sum := Summation ofAll: #( 1 2 ).
+
+  self assert: sum isDimensionless
+]
+
+{ #category : 'tests - magnitude' }
 SummationTest >> testLessThan [
 
   | sum |

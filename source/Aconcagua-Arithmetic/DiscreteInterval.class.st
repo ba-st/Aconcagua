@@ -36,6 +36,7 @@ DiscreteInterval class >> from: start to: end by: step [
 { #category : 'adding' }
 DiscreteInterval >> add: newObject [
 
+  <ignoreForCoverage>
   self shouldNotImplement
 ]
 
@@ -53,6 +54,7 @@ DiscreteInterval >> at: index [
 { #category : 'accessing' }
 DiscreteInterval >> at: index put: object [
 
+  <ignoreForCoverage>
   self shouldNotImplement
 ]
 

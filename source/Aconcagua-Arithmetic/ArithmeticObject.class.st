@@ -16,6 +16,7 @@ Class {
 { #category : 'testing' }
 ArithmeticObject class >> isAbstract [
 
+  <ignoreForCoverage>
   ^ self = ArithmeticObject
 ]
 

@@ -73,6 +73,21 @@ USCustomaryUnitsTest >> testMassUnits [
     assert: 1 * ( self unit: #troyPound ) equals: 12 * ( self unit: #troyOunce )
 ]
 
+{ #category : 'tests' }
+USCustomaryUnitsTest >> testTemperatureUnits [
+
+  | seventyFarenheit |
+  seventyFarenheit := 70 * ( self unit: #degreeFarenheit ).
+
+  self
+    assert: seventyFarenheit printString equals: '70 °F';
+    assert: seventyFarenheit unit singularName equals: 'degree Fahrenheit';
+    assert: seventyFarenheit unit pluralName equals: 'degrees Fahrenheit';
+    assert: seventyFarenheit + ( 0 * ( self unit: #kelvin ) ) equals: seventyFarenheit.
+
+  self should: [ seventyFarenheit reciprocal ] raise: ArithmeticError
+]
+
 { #category : 'private' }
 USCustomaryUnitsTest >> unit: unitSymbol [
 

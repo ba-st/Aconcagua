@@ -15,9 +15,10 @@ Class {
 }
 
 { #category : 'class initialization' }
-IntegerAsSuperscriptFormatter class >> initialize [ 
+IntegerAsSuperscriptFormatter class >> initialize [
 
-	uniqueInstance := super new
+  <ignoreForCoverage>
+  uniqueInstance := super new
 ]
 
 { #category : 'instance creation' }
@@ -37,7 +38,11 @@ IntegerAsSuperscriptFormatter >> format: integer on: stream [
         digitToSuperscriptMapping
           at: character
           ifPresent: [ :superscript | stream nextPutAll: superscript ]
-          ifAbsent: [ stream nextPut: character ]
+          ifAbsent: [
+              ObjectNotFound signal:
+                ( 'Cannot format an unexpected character: "{1}"' localizedWithAll:
+                    { character asString } )
+            ]
       ]
   ] unless: integer = 1
 ]
@@ -45,6 +50,7 @@ IntegerAsSuperscriptFormatter >> format: integer on: stream [
 { #category : 'initialization' }
 IntegerAsSuperscriptFormatter >> initialize [
 
+  <ignoreForCoverage>
   super initialize.
   digitToSuperscriptMapping := IdentityDictionary new.
   digitToSuperscriptMapping

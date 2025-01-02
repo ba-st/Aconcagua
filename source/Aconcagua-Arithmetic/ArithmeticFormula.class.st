@@ -17,6 +17,7 @@ Class {
 { #category : 'testing' }
 ArithmeticFormula class >> isAbstract [
 
+  <ignoreForCoverage>
   ^ self = ArithmeticFormula
 ]
 

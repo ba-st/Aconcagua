@@ -130,6 +130,23 @@ UnitOfAccountTest >> testComparison [
 ]
 
 { #category : 'tests' }
+UnitOfAccountTest >> testConvertTo [
+
+  | satoshi |
+  satoshi := MultipleUnitOfMeasure
+               basedOn: btc
+               singularNamed: 'satoshi'
+               pluralNamed: 'satoshis'
+               symbol: 'st'
+               raisedTo: -8.
+
+  self
+    assert: 100000000 * satoshi equals: 1 * btc;
+    assert: ( 100000000 * satoshi convertTo: btc ) printString equals: '1 ₿';
+    assert: ( 100000000 * satoshi ) + ( 1 * btc ) equals: 2 * btc
+]
+
+{ #category : 'tests' }
 UnitOfAccountTest >> testDivision [
 
   self
@@ -160,6 +177,12 @@ UnitOfAccountTest >> testInverse [
     assert: ( usdt * usdt inverse ) isDimensionless.
 
   self assert: ( usdt * usdt * usdt inverse ) symbol equals: '₮'
+]
+
+{ #category : 'tests' }
+UnitOfAccountTest >> testIsDimensionless [
+
+  self deny: usdt isDimensionless
 ]
 
 { #category : 'tests' }

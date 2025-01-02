@@ -19,6 +19,15 @@ IntegerAsSuperscriptFormatterTest >> setUp [
 ]
 
 { #category : 'tests' }
+IntegerAsSuperscriptFormatterTest >> testCantFormatInvalidObject [
+
+  self
+    should: [ formatter format: 1.5 ]
+    raise: ObjectNotFound
+    withMessageText: 'Cannot format an unexpected character: "."'
+]
+
+{ #category : 'tests' }
 IntegerAsSuperscriptFormatterTest >> testFormatIntegerWithSeveralDigits [
 
   self assert: ( formatter format: 1234567890 ) equals: '¹²³⁴⁵⁶⁷⁸⁹⁰'

@@ -17,6 +17,7 @@ Class {
 { #category : 'testing' }
 Unit class >> isAbstract [
 
+  <ignoreForCoverage>
   ^ self = Unit
 ]
 

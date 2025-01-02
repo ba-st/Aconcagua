@@ -135,6 +135,14 @@ DimensionTest >> testMultiplicationOfTheSameDimension [
 ]
 
 { #category : 'tests' }
+DimensionTest >> testOccurencesOf [
+
+  self
+    assert: ( Dimension length * Dimension time occurrencesOf: Dimension mass ) equals: 0;
+    assert: ( Dimension length * Dimension time occurrencesOf: Dimension length ) equals: 1
+]
+
+{ #category : 'tests' }
 DimensionTest >> testPrintString [
 
   self

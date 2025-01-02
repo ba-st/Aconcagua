@@ -298,7 +298,9 @@ QuantityTest >> testConvertTo [
   self
     assert: ( fiveThousandMeters convertTo: kilometer ) equals: fiveThousandMeters;
     assert: ( fiveThousandMeters convertTo: kilometer ) unit equals: kilometer;
-    assert: ( fiveThousandMeters convertTo: kilometer ) numericalValue equals: 5
+    assert: ( fiveThousandMeters convertTo: kilometer ) numericalValue equals: 5.
+
+  self assert: ( fiveMeters convertTo: meter ) equals: fiveMeters
 ]
 
 { #category : 'tests - converting' }
@@ -610,6 +612,18 @@ QuantityTest >> testPrintString [
     assert: ( 50 * centimeter ) printString equals: '50 cm'
 ]
 
+{ #category : 'tests - creation' }
+QuantityTest >> testReciprocal [
+
+  | twoMeters |
+  twoMeters := meter * 2.
+
+  self
+    assert: twoMeters reciprocal unit equals: meter inverse;
+    assert: twoMeters reciprocal numericalValue equals: 1 / 2;
+    assert: twoMeters reciprocal equals: 1 / ( 2 * meter )
+]
+
 { #category : 'tests - formulas' }
 QuantityTest >> testSequenceProduct [
 
@@ -727,7 +741,9 @@ QuantityTest >> testSummation [
 
   sum := Summation ofAll: { 2 * meter . -300 * centimeter }.
 
-  self assert: sum equals: -1 * meter.
+  self
+    assert: sum equals: -1 * meter;
+    deny: sum isDimensionless.
 
   self
     should: [ ( Summation ofAll: { 2 * meter . 5 * second } ) value ]
