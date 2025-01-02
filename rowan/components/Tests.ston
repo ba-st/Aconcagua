@@ -5,13 +5,15 @@ RwSimpleProjectLoadComponentV2 {
     'Deployment'
   ],
   #packageNames : [
-    'Aconcagua-Tests'
+    'Aconcagua-Arithmetic-Tests',
+    'Aconcagua-Quantitative-Analysis-Tests'
   ],
   #conditionalPackageMapSpecs : {
     'gemstone' : {
       'allusers' : {
         #packageNameToPlatformPropertiesMap : {
-          'Aconcagua-Tests' : { 'symbolDictName' : 'Aconcagua' }
+          'Aconcagua-Arithmetic-Tests' : { 'symbolDictName' : 'Aconcagua' },
+          'Aconcagua-Quantitative-Analysis-Tests' : { 'symbolDictName' : 'Aconcagua' }
         }
       }
     }

@@ -1,0 +1,13 @@
+{
+	"Dimensions" : {
+		"294e6f03e3fed851cc6325f06d80112a03c49721a012aa62d852744a29420ca7" : "Cantidad de sustancia",
+		"31dea69fe1702d63743ee91fdfb886efbb0d0cced8a79c08e29ab0ea1c2b113f" : "Corriente Eléctrica",
+		"1cb0ba125f84c982b00ba3639cdfb2cee6b70f94b5e0115c045fef607af4f216" : "Información",
+		"adc95605a1b30c73959fbaf21e60f9723efe855c482fa336a957924d4ea0a08b" : "Longitud",
+		"b3b86648fcf90fcccf65f376754bd8f711969b7995b6e1d8e4cb790455844f1f" : "Intensidad Luminosa",
+		"10a0c5f853c3da31cadcb56186be374f9dd123a4473e3d7362b572c48b279a23" : "Masa",
+		"12232f1a1718351f88553d27fcbbe27f845f184ba801567d457fb1ddf1b4645a" : "Ángulo Plano",
+		"66d20f952f8fda86716b919ccd59d54e1a2c1653df93e25542e8d4dcaeea4598" : "Temperatura Absoluta",
+		"33b93476cf597a3330653b66a658983d892ac264b5d6029a2dc642b9b1f30870" : "Tiempo"
+	}
+}
