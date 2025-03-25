@@ -19,12 +19,12 @@ Class {
 }
 
 { #category : 'class initialization' }
-InternationalSystemOfUnits class >> addBaseUnitBasedOn: dimension singularNamed: singularName pluralNamed: pluralName symbol: symbol as: key [
+InternationalSystemOfUnits class >> addBaseUnitMeasuring: dimension singularNamed: singularName pluralNamed: pluralName symbol: symbol as: key [
 
   <ignoreForCoverage>
   | unit |
   unit := BaseUnitOfMeasure
-            basedOn: dimension
+            measuring: dimension
             singularNamed: singularName
             pluralNamed: pluralName
             symbol: symbol.
@@ -180,7 +180,7 @@ InternationalSystemOfUnits class >> initializeAmountOfSubstanceUnits [
   <ignoreForCoverage>
   | mole |
   mole := self
-            addBaseUnitBasedOn: Dimension amountOfSubstance
+            addBaseUnitMeasuring: Dimension amountOfSubstance
             singularNamed: 'mole'
             pluralNamed: 'moles'
             symbol: 'mol'
@@ -193,7 +193,7 @@ InternationalSystemOfUnits class >> initializeAngleUnits [
 
   <ignoreForCoverage>
   self
-    addBaseUnitBasedOn: Dimension angle
+    addBaseUnitMeasuring: Dimension angle
     singularNamed: 'radian'
     pluralNamed: 'radians'
     symbol: 'rad'
@@ -206,7 +206,7 @@ InternationalSystemOfUnits class >> initializeBit [
   <ignoreForCoverage>
   | bit |
   bit := self
-           addBaseUnitBasedOn: ( BaseDimension named: 'Information' symbol: 'D' )
+           addBaseUnitMeasuring: ( BaseDimension named: 'Information' symbol: 'D' )
            singularNamed: 'bit'
            pluralNamed: 'bits'
            symbol: 'b'
@@ -327,7 +327,7 @@ InternationalSystemOfUnits class >> initializeElectricCurrentUnits [
   <ignoreForCoverage>
   | ampere |
   ampere := self
-              addBaseUnitBasedOn: Dimension electricCurrent
+              addBaseUnitMeasuring: Dimension electricCurrent
               singularNamed: 'ampere'
               pluralNamed: 'amperes'
               symbol: 'A'
@@ -464,7 +464,7 @@ InternationalSystemOfUnits class >> initializeLengthUnits [
   <ignoreForCoverage>
   | meter |
   meter := self
-             addBaseUnitBasedOn: Dimension length
+             addBaseUnitMeasuring: Dimension length
              singularNamed: 'meter'
              pluralNamed: 'meters'
              symbol: 'm'
@@ -490,7 +490,7 @@ InternationalSystemOfUnits class >> initializeLuminousIntensityUnits [
   <ignoreForCoverage>
   | candela |
   candela := self
-               addBaseUnitBasedOn: Dimension luminousIntensity
+               addBaseUnitMeasuring: Dimension luminousIntensity
                singularNamed: 'candela'
                pluralNamed: 'candelas'
                symbol: 'cd'
@@ -513,7 +513,7 @@ InternationalSystemOfUnits class >> initializeMassUnits [
   <ignoreForCoverage>
   | gram |
   gram := self
-            addBaseUnitBasedOn: Dimension mass
+            addBaseUnitMeasuring: Dimension mass
             singularNamed: 'gram'
             pluralNamed: 'grams'
             symbol: 'g'
@@ -590,7 +590,7 @@ InternationalSystemOfUnits class >> initializeThermodynamicTemperatureUnits [
   <ignoreForCoverage>
   | kelvin |
   kelvin := self
-              addBaseUnitBasedOn: Dimension thermodynamicTemperature
+              addBaseUnitMeasuring: Dimension thermodynamicTemperature
               singularNamed: 'kelvin'
               pluralNamed: 'kelvins'
               symbol: 'K'
@@ -605,7 +605,7 @@ InternationalSystemOfUnits class >> initializeTimeUnits [
   <ignoreForCoverage>
   | second |
   second := self
-              addBaseUnitBasedOn: Dimension time
+              addBaseUnitMeasuring: Dimension time
               singularNamed: 'second'
               pluralNamed: 'seconds'
               symbol: 's'

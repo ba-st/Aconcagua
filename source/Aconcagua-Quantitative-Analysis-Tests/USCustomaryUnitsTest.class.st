@@ -85,7 +85,10 @@ USCustomaryUnitsTest >> testTemperatureUnits [
     assert: seventyFarenheit unit pluralName equals: 'degrees Fahrenheit';
     assert: seventyFarenheit + ( 0 * ( self unit: #kelvin ) ) equals: seventyFarenheit.
 
-  self should: [ seventyFarenheit reciprocal ] raise: ArithmeticError
+  self
+    should: [ seventyFarenheit reciprocal ]
+    raise: ArithmeticError
+    withMessageText: 'Inverting degrees Fahrenheit is unsupported'
 ]
 
 { #category : 'private' }

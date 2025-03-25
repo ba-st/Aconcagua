@@ -43,7 +43,7 @@ DegreeCelsius >> inverse [
   ArithmeticError signal: 'Inverting degrees Celsius is unsupported' localized
 ]
 
-{ #category : 'accessing' }
+{ #category : 'private' }
 DegreeCelsius >> offset [
 
   ^ 27315 / 100

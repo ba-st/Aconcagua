@@ -18,7 +18,7 @@ TemperatureUnitsTest >> setUp [
 
   super setUp.
   kelvin := BaseUnitOfMeasure
-              basedOn: Dimension thermodynamicTemperature
+              measuring: Dimension thermodynamicTemperature
               singularNamed: 'kelvin'
               pluralNamed: 'kelvins'
               symbol: 'K'.

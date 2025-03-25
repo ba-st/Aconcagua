@@ -30,7 +30,7 @@ DegreeFahrenheit >> dimension [
   ^ kelvin dimension
 ]
 
-{ #category : 'accessing' }
+{ #category : 'private' }
 DegreeFahrenheit >> factor [
 
   ^ 5 / 9
@@ -50,7 +50,7 @@ DegreeFahrenheit >> inverse [
   ArithmeticError signal: 'Inverting degrees Fahrenheit is unsupported' localized
 ]
 
-{ #category : 'accessing' }
+{ #category : 'private' }
 DegreeFahrenheit >> offset [
 
   ^ 45967 / 100

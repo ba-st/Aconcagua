@@ -21,7 +21,7 @@ UnitOfAccountTest >> setUp [
   usdt := UnitOfAccount on: 'USDT' symbol: '₮'.
   btc := UnitOfAccount on: 'BTC' symbol: '₿'.
   second := BaseUnitOfMeasure
-             basedOn: Dimension length
+             measuring: Dimension length
              singularNamed: 'second'
              pluralNamed: 'seconds'
              symbol: 's'.

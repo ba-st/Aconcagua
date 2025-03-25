@@ -16,10 +16,10 @@ Class {
 }
 
 { #category : 'instance creation' }
-BaseUnitOfMeasure class >> basedOn: dimension singularNamed: singularName pluralNamed: pluralName symbol: symbol [
+BaseUnitOfMeasure class >> measuring: dimension singularNamed: singularName pluralNamed: pluralName symbol: symbol [
 
   ^ self new
-      initializeBasedOn: dimension
+      initializeMeasuring: dimension
       named: ( UnitNames singular: singularName plural: pluralName symbol: symbol )
 ]
 
@@ -36,7 +36,7 @@ BaseUnitOfMeasure >> dimension [
 ]
 
 { #category : 'initialization' }
-BaseUnitOfMeasure >> initializeBasedOn: aDimension named: theUnitNames [
+BaseUnitOfMeasure >> initializeMeasuring: aDimension named: theUnitNames [
 
   dimension := aDimension.
   names := theUnitNames

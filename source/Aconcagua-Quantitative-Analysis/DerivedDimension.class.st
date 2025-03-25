@@ -1,5 +1,5 @@
 "
-A derived dimension is a  composite dimensions formed by combining fundamental dimensions, 
+A derived dimension is a composite dimension formed by combining fundamental dimensions, 
 using multiplication or division.
 "
 Class {

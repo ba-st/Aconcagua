@@ -20,7 +20,7 @@ QuantityTest >> setUp [
 
   super setUp.
   meter := BaseUnitOfMeasure
-             basedOn: Dimension length
+             measuring: Dimension length
              singularNamed: 'meter'
              pluralNamed: 'meters'
              symbol: 'm'.
@@ -35,7 +35,7 @@ QuantityTest >> setUp [
                  symbolPrefixedBy: 'k'
                  raisedTo: 3.
   second := BaseUnitOfMeasure
-              basedOn: Dimension time
+              measuring: Dimension time
               singularNamed: 'second'
               pluralNamed: 'seconds'
               symbol: 's'.
@@ -63,7 +63,7 @@ QuantityTest >> testAddition [
 ]
 
 { #category : 'tests - arithmetic' }
-QuantityTest >> testAdditionDontMakeUnnecessaryConversions [
+QuantityTest >> testAdditionDoesNotMakeUnnecessaryConversions [
 
   | fiveCentimeters oneHundredCentimeters snailSpeed |
   fiveCentimeters := 5 * centimeter.
@@ -666,7 +666,7 @@ QuantityTest >> testSubtraction [
 ]
 
 { #category : 'tests - arithmetic' }
-QuantityTest >> testSubtractionDontMakeUnnecessaryConversions [
+QuantityTest >> testSubtractionDoesNotMakeUnnecessaryConversions [
 
   | fiveCentimeters oneHundredCentimeters snailSpeed |
   fiveCentimeters := 5 * centimeter.

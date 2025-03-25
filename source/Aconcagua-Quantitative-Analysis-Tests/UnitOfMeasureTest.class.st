@@ -18,7 +18,7 @@ UnitOfMeasureTest >> setUp [
 
   super setUp.
   meter := BaseUnitOfMeasure
-             basedOn: Dimension length
+             measuring: Dimension length
              singularNamed: 'meter'
              pluralNamed: 'meters'
              symbol: 'm'.
@@ -28,7 +28,7 @@ UnitOfMeasureTest >> setUp [
                   symbolPrefixedBy: 'c'
                   raisedTo: -2.
   second := BaseUnitOfMeasure
-              basedOn: Dimension time
+              measuring: Dimension time
               singularNamed: 'second'
               pluralNamed: 'seconds'
               symbol: 's'
