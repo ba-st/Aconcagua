@@ -84,8 +84,12 @@ InternationalSystemOfUnitsTest >> testDegreeCelsius [
     assert: ( -27315 / 100 * degreeCelsius ) isZero.
 
   self
-    should: [ 0 * kilometer / degreeCelsius ] raise: ArithmeticError;
-    should: [ kilometer / degreeCelsius ] raise: ArithmeticError.
+    should: [ 0 * kilometer / degreeCelsius ]
+    raise: ArithmeticError
+    withMessageText: 'Inverting degrees Celsius is unsupported';
+    should: [ kilometer / degreeCelsius ]
+    raise: ArithmeticError
+    withMessageText: 'Inverting degrees Celsius is unsupported'.
 
   self
     assert: ( -40 * degreeCelsius convertTo: kelvin ) numericalValue equals: 23315 / 100;

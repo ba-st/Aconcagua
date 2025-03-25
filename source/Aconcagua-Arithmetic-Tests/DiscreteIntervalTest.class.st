@@ -31,16 +31,26 @@ DiscreteIntervalTest >> testCantCreateInvalidIntervals [
     should: [ DiscreteInterval from: 1 to: 0 by: 1 ]
     raise: InstanceCreationFailed
     withMessageText: 'Cannot create an interval with an invalid step'.
-
-  self should: [ DiscreteInterval from: 1 to: -1 by: 1 ] raise: InstanceCreationFailed.
-  self should: [ DiscreteInterval from: -1 to: -2 by: 1 ] raise: InstanceCreationFailed.
-  self should: [ DiscreteInterval from: 1 to: 5 by: -1 ] raise: InstanceCreationFailed.
-  self should: [ DiscreteInterval from: 1 to: 1 by: 0 ] raise: InstanceCreationFailed.
+  self
+    should: [ DiscreteInterval from: 1 to: -1 by: 1 ]
+    raise: InstanceCreationFailed
+    withMessageText: 'Cannot create an interval with an invalid step'.
+  self
+    should: [ DiscreteInterval from: -1 to: -2 by: 1 ]
+    raise: InstanceCreationFailed
+    withMessageText: 'Cannot create an interval with an invalid step'.
+  self
+    should: [ DiscreteInterval from: 1 to: 5 by: -1 ]
+    raise: InstanceCreationFailed
+    withMessageText: 'Cannot create an interval with an invalid step'.
+  self
+    should: [ DiscreteInterval from: 1 to: 1 by: 0 ]
+    raise: InstanceCreationFailed
+    withMessageText: 'Cannot create an interval with an invalid step'.
 
   self shouldnt: [ DiscreteInterval from: 1 to: 1 by: 1 ] raise: InstanceCreationFailed.
   self shouldnt: [ DiscreteInterval from: 1 to: 5 by: 10 ] raise: InstanceCreationFailed.
-  self shouldnt: [ DiscreteInterval from: 1 to: 0 by: -2 ] raise: InstanceCreationFailed.
-
+  self shouldnt: [ DiscreteInterval from: 1 to: 0 by: -2 ] raise: InstanceCreationFailed
 ]
 
 { #category : 'tests' }
@@ -66,16 +76,17 @@ DiscreteIntervalTest >> testEnumeration [
 DiscreteIntervalTest >> testInclusion [
 
   | interval |
-  interval := DiscreteInterval from: 11 to: 20 by: 2.
+  interval := DiscreteInterval from: 11 to: 16 by: 2.
 
   self
     deny: interval includes: 10;
     assert: interval includes: 11;
+    deny: interval includes: 12;
     assert: interval includes: 13;
+    deny: interval includes: 14;
     assert: interval includes: 15;
-    assert: interval includes: 17;
-    assert: interval includes: 19;
-    deny: interval includes: 20
+    deny: interval includes: 16;
+    deny: interval includes: 17
 ]
 
 { #category : 'tests' }

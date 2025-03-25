@@ -96,9 +96,9 @@ Unit >> productWithDerivedUnit: derivedUnit [
 ]
 
 { #category : 'private' }
-Unit >> productWithQuantity: multiplier [ 
+Unit >> productWithQuantity: multiplier [
 
-	^multiplier * (1 * self)
+  ^ multiplier * ( 1 * self )
 ]
 
 { #category : 'private' }

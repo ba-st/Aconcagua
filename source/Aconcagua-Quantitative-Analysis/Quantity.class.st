@@ -1,5 +1,5 @@
 "
-A quantity is a property that can exist as a multitude or magnitude, which illustrate discontinuity and continuity.
+A quantity is a property that can exist as a multitude or magnitude, which illustrates discontinuity and continuity.
 
 Quantities can be compared in terms of ""more"", ""less"", or ""equal"", or by assigning a numerical value multiple of a unit of measurement. Mass, time, distance, heat, and angle are among the familiar examples of quantitative properties.
 "
@@ -31,7 +31,7 @@ Quantity class >> with: arithmeticObject basedOn: unit [
 
   AssertionChecker
     enforce: [ arithmeticObject isDimensionless ]
-    because: 'Quantity numerical values must be numbers' localized
+    because: [ 'Quantity numerical values must be numbers' localized ]
     raising: InstanceCreationFailed.
 
   ^ self new initializeWith: arithmeticObject basedOn: unit
