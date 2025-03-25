@@ -44,7 +44,7 @@ Quantities can be compared in terms of "more", "less", or "equal", or by
 assigning a numerical value multiple of a unit of measurement. Mass, time, distance,
 heat, and angle are among the familiar examples of quantitative properties.
 
-Quantities are arithmetic objects, and as such supports the usual arithmetic operations.
+Quantities are arithmetic objects, and as such support the usual arithmetic operations.
 
 Addition and subtraction are only supported for quantities that are commensurable.
 A quantity is commensurable if its units are also commensurable. Two units are
