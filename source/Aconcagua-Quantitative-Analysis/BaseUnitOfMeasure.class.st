@@ -20,7 +20,7 @@ BaseUnitOfMeasure class >> measuring: dimension singularNamed: singularName plur
 
   ^ self new
       initializeMeasuring: dimension
-      named: ( UnitNames singular: singularName plural: pluralName symbol: symbol )
+      named: ( UnitNomenclature singular: singularName plural: pluralName symbol: symbol )
 ]
 
 { #category : 'converting' }

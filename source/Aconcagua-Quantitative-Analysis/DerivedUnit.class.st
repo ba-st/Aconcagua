@@ -81,7 +81,7 @@ DerivedUnit >> aliasedBy: singularName plural: pluralName symbol: symbol [
   ^ self class
       composedOfAll: exponentsByUnit
       nameOptional:
-      ( Optional containing: ( UnitNames singular: singularName plural: pluralName symbol: symbol ) )
+      ( Optional containing: ( UnitNomenclature singular: singularName plural: pluralName symbol: symbol ) )
 ]
 
 { #category : 'converting' }

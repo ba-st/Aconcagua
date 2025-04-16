@@ -1,5 +1,5 @@
 Class {
-	#name : 'UnitNames',
+	#name : 'UnitNomenclature',
 	#superclass : 'Object',
 	#instVars : [
 		'singular',
@@ -11,13 +11,13 @@ Class {
 }
 
 { #category : 'instance creation' }
-UnitNames class >> singular: aSingularName plural: aPluralName symbol: aSymbol [
+UnitNomenclature class >> singular: aSingularName plural: aPluralName symbol: aSymbol [
 
   ^ self new initializeSingular: aSingularName plural: aPluralName symbol: aSymbol
 ]
 
 { #category : 'initialization' }
-UnitNames >> initializeSingular: aSingularName plural: aPluralName symbol: aSymbol [
+UnitNomenclature >> initializeSingular: aSingularName plural: aPluralName symbol: aSymbol [
 
   singular := aSingularName.
   plural := aPluralName.
@@ -25,19 +25,19 @@ UnitNames >> initializeSingular: aSingularName plural: aPluralName symbol: aSymb
 ]
 
 { #category : 'accessing' }
-UnitNames >> plural [
+UnitNomenclature >> plural [
 
   ^ plural localized
 ]
 
 { #category : 'accessing' }
-UnitNames >> singular [
+UnitNomenclature >> singular [
 
   ^ singular localized
 ]
 
 { #category : 'accessing' }
-UnitNames >> symbol [
+UnitNomenclature >> symbol [
 
   ^ symbol
 ]

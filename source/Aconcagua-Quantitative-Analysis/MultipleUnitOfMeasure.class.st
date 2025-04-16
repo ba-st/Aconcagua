@@ -44,7 +44,7 @@ MultipleUnitOfMeasure class >> basedOn: baseUnit singularNamed: singularName plu
 
   ^ self new
       initializeBasedOn: baseUnit
-      named: ( UnitNames singular: singularName plural: pluralName symbol: symbol )
+      named: ( UnitNomenclature singular: singularName plural: pluralName symbol: symbol )
       factor: factor
 ]
 
