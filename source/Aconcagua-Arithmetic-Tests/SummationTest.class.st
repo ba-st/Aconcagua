@@ -329,3 +329,11 @@ SummationTest >> testSummationOfSquares [
 
   self assert: sum equals: 86
 ]
+
+{ #category : 'tests - arithmetic' }
+SummationTest >> testTruncated [
+
+  self
+    assert: ( Summation ofAll: #( 1 2 ) ) truncated equals: 3;
+    assert: ( Summation ofAll: { 3 . ( 3 / 4 ) } ) truncated equals: 3
+]

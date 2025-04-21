@@ -105,6 +105,12 @@ ArithmeticFormula >> reciprocal [
   ^ self value reciprocal
 ]
 
+{ #category : 'truncation and round off' }
+ArithmeticFormula >> truncated [
+
+	^self value truncated
+]
+
 { #category : 'evaluating' }
 ArithmeticFormula >> value [
 

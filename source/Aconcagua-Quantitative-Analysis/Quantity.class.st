@@ -230,6 +230,12 @@ Quantity >> to: end by: step [
   ^ DiscreteInterval from: self to: end by: step
 ]
 
+{ #category : 'truncation and round off' }
+Quantity >> truncated [
+
+  ^ self class with: numericalValue truncated basedOn: unit
+]
+
 { #category : 'accessing' }
 Quantity >> unit [
 

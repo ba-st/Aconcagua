@@ -794,3 +794,11 @@ QuantityTest >> testSummation [
     raise: ArithmeticError
     withMessageText: 'Cannot add incommensurable quantities'
 ]
+
+{ #category : 'tests - printing' }
+QuantityTest >> testTruncated [
+
+  self
+    assert: ( 1 / 2 * meter ) truncated equals: 0 * meter;
+    assert: ( 7 / 2 * centimeter ) truncated equals: 3 * centimeter
+]

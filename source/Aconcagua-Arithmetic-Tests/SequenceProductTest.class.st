@@ -322,3 +322,11 @@ SequenceProductTest >> testSubtraction [
     assert: product - 0.1s2 equals: 5.9s2;
     assert: 0.1s2 - product equals: -5.9s2
 ]
+
+{ #category : 'tests' }
+SequenceProductTest >> testTruncated [
+
+  self
+    assert: ( SequenceProduct ofAll: #( 1 2 ) ) truncated equals: 2;
+    assert: ( SequenceProduct ofAll: { 3 . ( 3 / 4 ) } ) truncated equals: 2
+]

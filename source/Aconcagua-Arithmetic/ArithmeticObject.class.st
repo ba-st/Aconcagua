@@ -74,6 +74,12 @@ ArithmeticObject >> squared [
   ^ self raisedToInteger: 2
 ]
 
+{ #category : 'truncation and round off' }
+ArithmeticObject >> truncated [
+
+  ^ self subclassResponsibility
+]
+
 { #category : 'evaluating' }
 ArithmeticObject >> value [
 
