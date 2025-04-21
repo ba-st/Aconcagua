@@ -7,7 +7,10 @@ Class {
 	#name : 'ArithmeticObject',
 	#superclass : 'Magnitude',
 	#category : 'Aconcagua-Arithmetic',
-	#package : 'Aconcagua-Arithmetic'
+	#package : 'Aconcagua-Arithmetic',
+	#'gs_options' : [
+		'instancesInvariant'
+	]
 }
 
 { #category : 'testing' }
@@ -53,7 +56,7 @@ ArithmeticObject >> isZero [
   ^ self subclassResponsibility
 ]
 
-{ #category : 'arithmetic' }
+{ #category : 'private' }
 ArithmeticObject >> productWithPartsPerFractionRatio: number [
 
   ^ self subclassResponsibility
