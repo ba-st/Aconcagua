@@ -66,6 +66,19 @@ SummationTest >> testDivision [
 ]
 
 { #category : 'tests - arithmetic' }
+SummationTest >> testDivisionByPartsPerFraction [
+
+  | sum |
+  sum := Summation ofAll: #( 1 2 ).
+
+  self
+    assert: sum / 200 percent equals: 3 / 2;
+    assert: sum / 2000 perMille equals: 3 / 2;
+    assert: 200 percent / sum equals: 2 / 3;
+    assert: 2000 perMille / sum equals: 2 / 3
+]
+
+{ #category : 'tests - arithmetic' }
 SummationTest >> testExponentiation [
 
   | sum |
@@ -211,6 +224,19 @@ SummationTest >> testMultiplication [
   self
     assert: sum * 0.1s2 equals: 0.3s2;
     assert: 0.1s2 * sum equals: 0.3s2
+]
+
+{ #category : 'tests - arithmetic' }
+SummationTest >> testMultiplicationByPartsPerFraction [
+
+  | sum |
+  sum := Summation ofAll: #( 1 2 ).
+
+  self
+    assert: sum * 200 percent equals: 6;
+    assert: sum * 2000 perMille equals: 6;
+    assert: 200 percent * sum equals: 6;
+    assert: 2000 perMille * sum equals: 6
 ]
 
 { #category : 'tests - printing' }

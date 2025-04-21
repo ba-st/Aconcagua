@@ -66,6 +66,19 @@ SequenceProductTest >> testDivision [
 ]
 
 { #category : 'tests - arithmetic' }
+SequenceProductTest >> testDivisionByPartsPerFraction [
+
+  | product |
+  product := SequenceProduct ofAll: #( 3 2 ).
+
+  self
+    assert: product / 200 percent equals: 3;
+    assert: product / 2000 perMille equals: 3;
+    assert: 200 percent / product equals: 1 / 3;
+    assert: 2000 perMille / product equals: 1 / 3
+]
+
+{ #category : 'tests - arithmetic' }
 SequenceProductTest >> testExponentiation [
 
   | product |
@@ -202,6 +215,22 @@ SequenceProductTest >> testMultiplication [
   self
     assert: product * 0.1s2 equals: 0.6s2;
     assert: 0.1s2 * product equals: 0.6s2
+]
+
+{ #category : 'tests - arithmetic' }
+SequenceProductTest >> testMultiplicationByPartsPerFraction [
+
+  | product |
+  product := SequenceProduct ofAll: #( 3 2 ).
+
+  self
+    assert: product * 200 percent equals: 12;
+    assert: 200 percent * product equals: 12;
+    assert: 2000 perMille * product equals: 12.
+
+  self
+    assert: product * 50 percent equals: 3;
+    assert: 50 percent * product equals: 3
 ]
 
 { #category : 'tests - printing' }

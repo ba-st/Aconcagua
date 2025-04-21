@@ -387,7 +387,13 @@ InternationalSystemOfUnits class >> initializeExtraTimeUnits [
           singularNamed: 'day'
           pluralNamed: 'days'
           symbol: 'd'
-          factor: 86400 )
+          factor: 86400 );
+    bind: #week to: ( MultipleUnitOfMeasure
+          basedOn: Units >> #second
+          singularNamed: 'week'
+          pluralNamed: 'weeks'
+          symbol: 'w'
+          factor: 604800 )
 ]
 
 { #category : 'class initialization' }

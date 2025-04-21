@@ -397,6 +397,7 @@ InternationalSystemOfUnitsTest >> testTimeUnits [
     assertUnit: #hour isCommensurableWith: #millisecond;
     assertUnit: #minute isCommensurableWith: #day;
     assertUnit: #day isCommensurableWith: #second;
+    assertUnit: #week isCommensurableWith: #second;
     assertUnit: #second isCommensurableWith: #picosecond;
     assertUnit: #second isCommensurableWith: #yoctosecond;
     assertUnit: #second isCommensurableWith: #microsecond;
@@ -406,9 +407,9 @@ InternationalSystemOfUnitsTest >> testTimeUnits [
 
   self
     assert:
-      ( self oneOf: #day ) + ( self oneOf: #hour ) + ( self oneOf: #minute )
+      ( self oneOf: #week ) + ( self oneOf: #day ) + ( self oneOf: #hour ) + ( self oneOf: #minute )
       + ( self oneOf: #second ) + ( self oneOf: #gigasecond )
-    equals: ( self unit: #second ) * 1000090061
+    equals: ( self unit: #second ) * 1000694861
 ]
 
 { #category : 'tests' }

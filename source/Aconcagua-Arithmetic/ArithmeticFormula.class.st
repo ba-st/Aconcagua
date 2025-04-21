@@ -24,7 +24,7 @@ ArithmeticFormula class >> isAbstract [
 { #category : 'arithmetic' }
 ArithmeticFormula >> * multiplicand [
 
-  ^ self value * multiplicand value
+  ^ self value * multiplicand
 ]
 
 { #category : 'arithmetic' }
@@ -42,7 +42,7 @@ ArithmeticFormula >> - subtrahend [
 { #category : 'arithmetic' }
 ArithmeticFormula >> / denominator [
 
-  ^ self value / denominator value
+  ^ self value / denominator
 ]
 
 { #category : 'comparing' }
@@ -81,6 +81,12 @@ ArithmeticFormula >> printOn: stream [
   self value printOn: stream
 ]
 
+{ #category : 'private' }
+ArithmeticFormula >> productWithPartsPerFractionRatio: number [
+
+  ^ self value * number
+]
+
 { #category : 'arithmetic' }
 ArithmeticFormula >> raisedTo: exponent [
 
@@ -91,6 +97,12 @@ ArithmeticFormula >> raisedTo: exponent [
 ArithmeticFormula >> raisedToInteger: exponent [
 
   ^ self value raisedToInteger: exponent
+]
+
+{ #category : 'arithmetic' }
+ArithmeticFormula >> reciprocal [
+
+  ^ self value reciprocal
 ]
 
 { #category : 'evaluating' }

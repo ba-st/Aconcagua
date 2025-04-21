@@ -175,6 +175,12 @@ Quantity >> printOn: stream [
 ]
 
 { #category : 'private' }
+Quantity >> productWithPartsPerFractionRatio: number [
+
+  ^ self * number
+]
+
+{ #category : 'private' }
 Quantity >> productWithQuantity: multiplier [
 
   ^ self class with: numericalValue * multiplier numericalValue basedOn: multiplier unit * unit

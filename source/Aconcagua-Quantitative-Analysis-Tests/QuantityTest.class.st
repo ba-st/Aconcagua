@@ -377,6 +377,19 @@ QuantityTest >> testDivision [
 ]
 
 { #category : 'tests - arithmetic' }
+QuantityTest >> testDivisionByPartsPerFraction [
+
+  | fourMeters |
+  fourMeters := meter * 4.
+
+  self
+    assert: fourMeters / 200 percent equals: 2 * meter;
+    assert: 400 percent / fourMeters equals: 1 * meter inverse;
+    assert: fourMeters / 2000 perMille equals: 2 * meter;
+    assert: 4000 perMille / fourMeters equals: 1 * meter inverse
+]
+
+{ #category : 'tests - arithmetic' }
 QuantityTest >> testDivisionByScalars [
 
   | fourMeters |
@@ -574,6 +587,20 @@ QuantityTest >> testMultiplication [
     assert: twoMeters * ( 3 * second ) equals: 6 * meter * second;
     assert: ( twoMeters * ( 3 * second ) ) printString equals: '6 m·s';
     assert: ( twoMeters * ( 3 * second inverse ) ) printString equals: '6 m/s'
+]
+
+{ #category : 'tests - arithmetic' }
+QuantityTest >> testMultiplicationByPartsPerFraction [
+
+  | twoMeters |
+  twoMeters := meter * 2.
+
+  self
+    assert: 200 percent * twoMeters equals: 4 * meter;
+    assert: twoMeters * 200 percent equals: 4 * meter;
+    assert: 50 percent * twoMeters equals: 1 * meter;
+    assert: 2000 perMille * twoMeters equals: 4 * meter;
+    assert: twoMeters * 2000 perMille equals: 4 * meter
 ]
 
 { #category : 'tests - arithmetic' }
