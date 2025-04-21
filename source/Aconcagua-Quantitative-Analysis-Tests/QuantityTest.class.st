@@ -366,13 +366,17 @@ QuantityTest >> testCreation [
 { #category : 'tests - arithmetic' }
 QuantityTest >> testDivision [
 
-  | fourMeters twoMeters |
+  | fourMeters twoMeters twoHundredCentimeters |
   fourMeters := meter * 4.
   twoMeters := 2 * meter.
+  twoHundredCentimeters := 200 * centimeter.
 
   self
     assert: fourMeters / twoMeters equals: 2;
     assert: fourMeters * fourMeters / twoMeters equals: 8 * meter;
+    assert: fourMeters * fourMeters / twoHundredCentimeters equals: 8 * meter;
+    assert: twoHundredCentimeters * twoHundredCentimeters / fourMeters equals: 1 * meter;
+    assert: twoHundredCentimeters * twoMeters / fourMeters equals: 1 * meter;
     assert: fourMeters / second / ( twoMeters / second ) equals: 2
 ]
 
@@ -398,6 +402,19 @@ QuantityTest >> testDivisionByScalars [
   self
     assert: fourMeters / 2 equals: 2 * meter;
     assert: 4 / fourMeters equals: 1 * meter inverse
+]
+
+{ #category : 'tests - arithmetic' }
+QuantityTest >> testDivisionResultingInDimensionlessQuantity [
+
+  | fourMeters twoHundredCentimeters |
+  fourMeters := meter * 4.
+  twoHundredCentimeters := 200 * centimeter.
+
+  self
+    assert: fourMeters / twoHundredCentimeters equals: 2;
+    assert: fourMeters * fourMeters / twoHundredCentimeters equals: 8 * meter;
+    assert: fourMeters / second / ( twoHundredCentimeters / second ) equals: 2
 ]
 
 { #category : 'tests - arithmetic' }

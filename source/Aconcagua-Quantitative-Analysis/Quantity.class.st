@@ -113,7 +113,7 @@ Quantity >> divisionFromQuantity: dividend [
   dividedUnit := dividend unit * unit inverse.
 
   ^ dividedUnit isDimensionless
-      then: [ dividend numericalValue / numericalValue ]
+      then: [ ( dividend convertTo: unit ) numericalValue / numericalValue ]
       otherwise: [ self class with: dividend numericalValue / numericalValue basedOn: dividedUnit ]
 ]
 
