@@ -48,6 +48,15 @@ QuantityTest >> setUp [
 ]
 
 { #category : 'tests - arithmetic' }
+QuantityTest >> testAbs [
+
+  self
+    assert: ( 0 * meter ) abs equals: 0 * meter;
+    assert: ( 2 * meter ) abs equals: 2 * meter;
+    assert: ( -2 * meter ) abs equals: 2 * meter
+]
+
+{ #category : 'tests - arithmetic' }
 QuantityTest >> testAddition [
 
   | oneMeter oneHundredCentimeters |

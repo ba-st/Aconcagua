@@ -82,6 +82,12 @@ Quantity >> = arithmeticObject [
       checkAgainst: arithmeticObject
 ]
 
+{ #category : 'arithmetic' }
+Quantity >> abs [
+
+  ^ self class with: numericalValue abs basedOn: unit
+]
+
 { #category : 'private' }
 Quantity >> additionWithQuantity: augend [
 

@@ -9,6 +9,15 @@ Class {
 }
 
 { #category : 'tests - arithmetic' }
+SummationTest >> testAbs [
+
+  self
+    assert: ( Summation ofAll: #( 1 -1 ) ) abs equals: 0;
+    assert: ( Summation ofAll: #( 2 -1 ) ) abs equals: 1;
+    assert: ( Summation ofAll: #( 1 -2 ) ) abs equals: 1
+]
+
+{ #category : 'tests - arithmetic' }
 SummationTest >> testAddition [
 
   | sum |

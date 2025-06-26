@@ -44,6 +44,12 @@ ArithmeticObject >> / denominator [
   ^ self subclassResponsibility
 ]
 
+{ #category : 'arithmetic' }
+ArithmeticObject >> abs [
+
+  ^ self subclassResponsibility
+]
+
 { #category : 'testing' }
 ArithmeticObject >> isDimensionless [
 

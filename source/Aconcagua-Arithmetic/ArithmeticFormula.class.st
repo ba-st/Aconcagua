@@ -57,6 +57,12 @@ ArithmeticFormula >> = arithmeticObject [
   ^ self value = arithmeticObject value
 ]
 
+{ #category : 'arithmetic' }
+ArithmeticFormula >> abs [
+
+  ^ self value abs
+]
+
 { #category : 'private' }
 ArithmeticFormula >> defaultArithmeticContext [
 

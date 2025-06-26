@@ -9,6 +9,15 @@ Class {
 }
 
 { #category : 'tests - arithmetic' }
+SequenceProductTest >> testAbs [
+
+  self
+    assert: ( SequenceProduct ofAll: #( 0 1 ) ) abs equals: 0;
+    assert: ( SequenceProduct ofAll: #( 1 3 ) ) abs equals: 3;
+    assert: ( SequenceProduct ofAll: #( -1 3 ) ) abs equals: 3
+]
+
+{ #category : 'tests - arithmetic' }
 SequenceProductTest >> testAddition [
 
   | product |
