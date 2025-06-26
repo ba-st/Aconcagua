@@ -140,6 +140,15 @@ SummationTest >> testIsDimensionless [
   self assert: sum isDimensionless
 ]
 
+{ #category : 'tests - testing' }
+SummationTest >> testIsZero [
+
+  self
+    assert: ( Summation ofAll: #( 1 -1 ) ) isZero;
+    deny: ( Summation ofAll: #( 2 -1 ) ) isZero;
+    deny: ( Summation ofAll: #( 1 -2 ) ) isZero
+]
+
 { #category : 'tests - magnitude' }
 SummationTest >> testLessThan [
 
@@ -237,6 +246,24 @@ SummationTest >> testMultiplicationByPartsPerFraction [
     assert: sum * 2000 perMille equals: 6;
     assert: 200 percent * sum equals: 6;
     assert: 2000 perMille * sum equals: 6
+]
+
+{ #category : 'tests - testing' }
+SummationTest >> testNegative [
+
+  self
+    deny: ( Summation ofAll: #( 1 -1 ) ) negative;
+    deny: ( Summation ofAll: #( 2 -1 ) ) negative;
+    assert: ( Summation ofAll: #( 1 -2 ) ) negative
+]
+
+{ #category : 'tests - testing' }
+SummationTest >> testPositive [
+
+  self
+    assert: ( Summation ofAll: #( 1 -1 ) ) positive;
+    assert: ( Summation ofAll: #( 2 -1 ) ) positive;
+    deny: ( Summation ofAll: #( 1 -2 ) ) positive
 ]
 
 { #category : 'tests - printing' }

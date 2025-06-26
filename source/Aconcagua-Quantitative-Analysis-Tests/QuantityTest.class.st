@@ -526,6 +526,15 @@ QuantityTest >> testIntervalWithStep [
     ( #( 100 110 120 130 140 150 160 170 180 190 200 ) collect: [ :value | value * centimeter ] )
 ]
 
+{ #category : 'tests - testing' }
+QuantityTest >> testIsZero [
+
+  self
+    assert: ( 0 * meter ) isZero;
+    deny: ( 2 * meter ) isZero;
+    deny: ( -2 * meter ) isZero
+]
+
 { #category : 'tests - magnitude' }
 QuantityTest >> testLessThan [
 
@@ -646,6 +655,24 @@ QuantityTest >> testMultiplicationWithArithmeticFormulas [
     assert: twoMeters * ( product * second ) equals: 6 * meter * second;
     assert: ( twoMeters * ( product * second ) ) printString equals: '6 m·s';
     assert: ( twoMeters * ( product * second inverse ) ) printString equals: '6 m/s'
+]
+
+{ #category : 'tests - testing' }
+QuantityTest >> testNegative [
+
+  self
+    deny: ( 0 * meter ) negative;
+    deny: ( 2 * meter ) negative;
+    assert: ( -2 * meter ) negative
+]
+
+{ #category : 'tests - testing' }
+QuantityTest >> testPositive [
+
+  self
+    assert: ( 0 * meter ) positive;
+    assert: ( 2 * meter ) positive;
+    deny: ( -2 * meter ) positive
 ]
 
 { #category : 'tests - printing' }
@@ -795,7 +822,7 @@ QuantityTest >> testSummation [
     withMessageText: 'Cannot add incommensurable quantities'
 ]
 
-{ #category : 'tests - printing' }
+{ #category : 'tests - arithmetic' }
 QuantityTest >> testTruncated [
 
   self

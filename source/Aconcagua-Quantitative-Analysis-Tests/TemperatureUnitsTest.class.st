@@ -202,6 +202,18 @@ TemperatureUnitsTest >> testIntersectionOfCelsiusAndFahrenheitScalesInFahrenheit
     equals: 23315 / 100
 ]
 
+{ #category : 'tests - testing' }
+TemperatureUnitsTest >> testIsZero [
+
+  | absoluteZero |
+  absoluteZero := -27315 / 100.
+
+  self
+    assert: ( 0 * kelvin ) isZero;
+    assert: ( absoluteZero * degreeCelsius ) isZero;
+    deny: ( 0 * degreeCelsius ) isZero
+]
+
 { #category : 'tests' }
 TemperatureUnitsTest >> testMeltingPointOfIceInCelsius [
 
@@ -227,6 +239,32 @@ TemperatureUnitsTest >> testMeltingPointOfIceInFahrenheit [
     assert: ( meltingPoint * degreeFahrenheit convertTo: kelvin ) unit equals: kelvin;
     assert: ( meltingPoint * degreeFahrenheit convertTo: kelvin ) numericalValue
     equals: 27315 / 100
+]
+
+{ #category : 'tests - testing' }
+TemperatureUnitsTest >> testNegative [
+
+  | absoluteZero |
+  absoluteZero := -27315 / 100.
+
+  self
+    deny: ( 0 * kelvin ) negative;
+    deny: ( absoluteZero * degreeCelsius ) negative;
+    deny: ( 0 * degreeCelsius ) negative;
+    assert: ( -1 * kelvin ) negative
+]
+
+{ #category : 'tests - testing' }
+TemperatureUnitsTest >> testPositive [
+
+  | absoluteZero |
+  absoluteZero := -27315 / 100.
+
+  self
+    assert: ( 0 * kelvin ) positive;
+    assert: ( absoluteZero * degreeCelsius ) positive;
+    assert: ( 0 * degreeCelsius ) positive;
+    deny: ( -1 * kelvin ) positive
 ]
 
 { #category : 'tests' }

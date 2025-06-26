@@ -131,6 +131,15 @@ SequenceProductTest >> testGreaterThanEquals [
     deny: 0.1s2 >= product
 ]
 
+{ #category : 'tests - testing' }
+SequenceProductTest >> testIsZero [
+
+  self
+    assert: ( SequenceProduct ofAll: #( 0 1 ) ) isZero;
+    deny: ( SequenceProduct ofAll: #( 1 3 ) ) isZero;
+    deny: ( SequenceProduct ofAll: #( -1 3 ) ) isZero
+]
+
 { #category : 'tests - magnitude' }
 SequenceProductTest >> testLessThan [
 
@@ -233,6 +242,24 @@ SequenceProductTest >> testMultiplicationByPartsPerFraction [
     assert: 50 percent * product equals: 3
 ]
 
+{ #category : 'tests - testing' }
+SequenceProductTest >> testNegative [
+
+  self
+    deny: ( SequenceProduct ofAll: #( 0 1 ) ) negative;
+    deny: ( SequenceProduct ofAll: #( 1 3 ) ) negative;
+    assert: ( SequenceProduct ofAll: #( -1 3 ) ) negative
+]
+
+{ #category : 'tests - testing' }
+SequenceProductTest >> testPositive [
+
+  self
+    assert: ( SequenceProduct ofAll: #( 0 1 ) ) positive;
+    assert: ( SequenceProduct ofAll: #( 1 3 ) ) positive;
+    deny: ( SequenceProduct ofAll: #( -1 3 ) ) positive
+]
+
 { #category : 'tests - printing' }
 SequenceProductTest >> testPrintString [
 
@@ -323,7 +350,7 @@ SequenceProductTest >> testSubtraction [
     assert: 0.1s2 - product equals: -5.9s2
 ]
 
-{ #category : 'tests' }
+{ #category : 'tests - arithmetic' }
 SequenceProductTest >> testTruncated [
 
   self

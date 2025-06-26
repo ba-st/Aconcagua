@@ -56,6 +56,18 @@ ArithmeticObject >> isZero [
   ^ self subclassResponsibility
 ]
 
+{ #category : 'testing' }
+ArithmeticObject >> negative [
+
+  ^ self subclassResponsibility
+]
+
+{ #category : 'testing' }
+ArithmeticObject >> positive [
+
+  ^ self subclassResponsibility
+]
+
 { #category : 'private' }
 ArithmeticObject >> productWithPartsPerFractionRatio: number [
 

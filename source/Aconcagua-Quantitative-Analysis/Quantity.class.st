@@ -154,6 +154,12 @@ Quantity >> negated [
   ^ self class with: numericalValue negated basedOn: unit
 ]
 
+{ #category : 'testing' }
+Quantity >> negative [ 
+
+  ^ self numericalValueInCanonicalUnit negative
+]
+
 { #category : 'accessing' }
 Quantity >> numericalValue [
 
@@ -164,6 +170,12 @@ Quantity >> numericalValue [
 Quantity >> numericalValueInCanonicalUnit [
 
   ^ unit valueInCanonicalUnit: numericalValue
+]
+
+{ #category : 'testing' }
+Quantity >> positive [
+
+  ^ self numericalValueInCanonicalUnit positive
 ]
 
 { #category : 'printing' }

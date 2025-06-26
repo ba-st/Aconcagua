@@ -75,6 +75,18 @@ ArithmeticFormula >> isZero [
   ^ self value isZero
 ]
 
+{ #category : 'testing' }
+ArithmeticFormula >> negative [
+
+  ^ self value negative
+]
+
+{ #category : 'testing' }
+ArithmeticFormula >> positive [
+
+  ^ self value positive
+]
+
 { #category : 'printing' }
 ArithmeticFormula >> printOn: stream [
 
