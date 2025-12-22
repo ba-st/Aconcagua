@@ -77,8 +77,20 @@ DiscreteInterval >> initializeFrom: theStart to: theEnd by: aStep [
   self initializeCount
 ]
 
+{ #category : 'enumerating' }
+DiscreteInterval >> reject: aBlock [
+
+  ^ self select: [ :each | ( aBlock value: each ) not ]
+]
+
 { #category : 'accessing' }
 DiscreteInterval >> size [
 
   ^ count
+]
+
+{ #category : 'private' }
+DiscreteInterval >> species [
+
+	^Array
 ]

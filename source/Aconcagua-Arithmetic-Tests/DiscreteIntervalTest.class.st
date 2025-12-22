@@ -54,6 +54,16 @@ DiscreteIntervalTest >> testCantCreateInvalidIntervals [
 ]
 
 { #category : 'tests' }
+DiscreteIntervalTest >> testCollect [
+
+  | interval |
+  interval := DiscreteInterval from: 1 to: 10 by: 1.
+  self
+    assert: ( interval collect: #printString )
+    hasTheSameElementsInTheSameOrderThat: #( '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' )
+]
+
+{ #category : 'tests' }
 DiscreteIntervalTest >> testEnumeration [
 
   | interval sum numbers |
@@ -107,4 +117,20 @@ DiscreteIntervalTest >> testIndexOf [
     assert: ( interval indexOf: 18 ) equals: 0;
     assert: ( interval indexOf: 19 ) equals: 5;
     assert: ( interval indexOf: 20 ) equals: 0
+]
+
+{ #category : 'tests' }
+DiscreteIntervalTest >> testReject [
+
+  | interval |
+  interval := DiscreteInterval from: 1 to: 10 by: 1.
+  self assert: ( interval reject: #even ) hasTheSameElementsInTheSameOrderThat: #( 1 3 5 7 9 )
+]
+
+{ #category : 'tests' }
+DiscreteIntervalTest >> testSelect [
+
+  | interval |
+  interval := DiscreteInterval from: 1 to: 10 by: 1.
+  self assert: ( interval select: #even ) hasTheSameElementsInTheSameOrderThat: #( 2 4 6 8 10 )
 ]
