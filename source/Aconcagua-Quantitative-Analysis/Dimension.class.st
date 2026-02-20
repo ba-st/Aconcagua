@@ -15,25 +15,28 @@ Class {
 { #category : 'accessing' }
 Dimension class >> amountOfSubstance [
 
+  BaseDimensions ifNil: [ self initializeDimensions ].
   ^ BaseDimensions >> #AmountOfSubstance
 ]
 
 { #category : 'accessing' }
 Dimension class >> angle [
 
+  BaseDimensions ifNil: [ self initializeDimensions ].
   ^ BaseDimensions >> #Angle
 ]
 
 { #category : 'accessing' }
 Dimension class >> electricCurrent [
 
+  BaseDimensions ifNil: [ self initializeDimensions ].
   ^ BaseDimensions >> #ElectricCurrent
 ]
 
 { #category : 'class initialization' }
 Dimension class >> initializeDimensions [
 
-	<ignoreForCoverage>
+  <ignoreForCoverage>
   BaseDimensions := Namespace new.
   BaseDimensions bind: #Time to: ( BaseDimension named: 'Time' symbol: 'T' ).
   BaseDimensions
@@ -48,38 +51,41 @@ Dimension class >> initializeDimensions [
   BaseDimensions
     bind: #LuminousIntensity
     to: ( BaseDimension named: 'Luminous Intensity' symbol: 'J' ).
- BaseDimensions
-    bind: #Angle
-    to: ( BaseDimension named: 'Plane Angle' symbol: 'A' )
+  BaseDimensions bind: #Angle to: ( BaseDimension named: 'Plane Angle' symbol: 'A' )
 ]
 
 { #category : 'accessing' }
 Dimension class >> length [
 
+  BaseDimensions ifNil: [ self initializeDimensions ].
   ^ BaseDimensions >> #Length
 ]
 
 { #category : 'accessing' }
 Dimension class >> luminousIntensity [
 
+  BaseDimensions ifNil: [ self initializeDimensions ].
   ^ BaseDimensions >> #LuminousIntensity
 ]
 
 { #category : 'accessing' }
 Dimension class >> mass [
 
+  BaseDimensions ifNil: [ self initializeDimensions ].
   ^ BaseDimensions >> #Mass
 ]
 
 { #category : 'accessing' }
 Dimension class >> thermodynamicTemperature [
 
+  BaseDimensions ifNil: [ self initializeDimensions ].
   ^ BaseDimensions >> #ThermodynamicTemperature
 ]
 
 { #category : 'accessing' }
 Dimension class >> time [
 
+  BaseDimensions ifNil: [ self initializeDimensions ].
   ^ BaseDimensions >> #Time
 ]
 

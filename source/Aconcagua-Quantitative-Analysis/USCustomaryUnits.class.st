@@ -321,5 +321,6 @@ USCustomaryUnits class >> millilitre [
 { #category : 'class initialization' }
 USCustomaryUnits class >> units [
 
+  Units ifNil: [ self initializeUnits ].
   ^ Units
 ]
