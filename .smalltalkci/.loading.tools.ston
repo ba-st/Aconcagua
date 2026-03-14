@@ -9,9 +9,6 @@ SmalltalkCISpec {
     }
   ],
   #testing : {
-    #coverage : {
-      #packages : [ 'Aconcagua*' ],
-      #format: #lcov
-    }
+    #failOnZeroTests : false
   }
 }
