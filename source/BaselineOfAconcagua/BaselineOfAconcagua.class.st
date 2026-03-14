@@ -20,7 +20,7 @@ BaselineOfAconcagua >> baseline: spec [
         setUpTestPackages: spec.
 
       spec
-        group: 'Tools' with: 'Buoy-Tools';
+        group: 'Tools' with: #( 'Deployment' 'Buoy-Tools');
         group: 'Development' with: #( 'Tests' 'Tools' );
         group: 'CI' with: 'Tests';
         group: 'default' with: 'Development'

@@ -1,0 +1,17 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'Aconcagua',
+      #directory : '../source',
+      #load : [ 'Tools' ],
+      #platforms : [  #pharo ],
+      #failOn : [ #Warning ]
+    }
+  ],
+  #testing : {
+    #coverage : {
+      #packages : [ 'Aconcagua*' ],
+      #format: #lcov
+    }
+  }
+}
