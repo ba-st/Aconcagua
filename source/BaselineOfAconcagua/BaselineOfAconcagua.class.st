@@ -17,10 +17,10 @@ BaselineOfAconcagua >> baseline: spec [
       self
         setUpDependencies: spec;
         setUpDeploymentPackages: spec;
-        setUpTestPackages: spec.
+        setUpTestPackages: spec;
+        setUpToolsPackages: spec.
 
       spec
-        group: 'Tools' with: #( 'Deployment' 'Buoy-Tools' );
         group: 'Development' with: #( 'Tests' 'Tools' );
         group: 'CI' with: 'Tests';
         group: 'default' with: 'Development'
@@ -94,4 +94,12 @@ BaselineOfAconcagua >> setUpTestPackages: spec [
                'Buoy-SUnit' )
       ];
     group: 'Tests' with: 'Aconcagua-Quantitative-Analysis-Tests'
+]
+
+{ #category : 'baselines' }
+BaselineOfAconcagua >> setUpToolsPackages: spec [
+
+  spec
+    package: 'Aconcagua-Development-Tools' with: [ spec requires: #( 'Buoy-Tools' 'Deployment' ) ];
+    group: 'Tools' with: 'Aconcagua-Development-Tools'
 ]
