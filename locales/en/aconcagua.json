@@ -10,6 +10,10 @@
 		"88598c7e43fd585e982dc4898d06c5a2c3602e737ab10ee2fdc444d101c916bc" : "Index out of range",
 		"bbd4ac968094a27f3cddbcb876dcb19e477d75865d0d1ef0e41e76723c144a39" : "Inverting degrees Celsius is unsupported",
 		"b7f590a5f4e7560c3a7e62d01a3af9fa89bde7f0b0fd29d32d4f351cda845519" : "Inverting degrees Fahrenheit is unsupported",
-		"2dbbb68b750c1f17270c7bf2efa44412b544166f29bc37a1a97dfeac316fed2d" : "Quantity numerical values must be numbers"
+		"2dbbb68b750c1f17270c7bf2efa44412b544166f29bc37a1a97dfeac316fed2d" : "Quantity numerical values must be numbers",
+		"6ac5b9a0a9a80ee9f5f1b738a532511e966542b986e8f7ff68cbd23db1e4f58f" : "degree Celsius",
+		"f1ad43603dcf61895fd3558cc2ebd887327fba514735c1a762eec69fca6cf5fa" : "degree Fahrenheit",
+		"6f5d487db00157613ac1c62f8872b69e47c6225b1f178eccf1217e45e4d4ce14" : "degrees Celsius",
+		"e9451a34e6088d7f3cef1cbb5a477afad344227ce60dc906b2fcc42fd307d687" : "degrees Fahrenheit"
 	}
 }
