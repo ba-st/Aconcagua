@@ -58,7 +58,7 @@ UnitOfAccount >> initializeOn: aReference symbol: aSymbol [
 { #category : 'testing' }
 UnitOfAccount >> isCommensurableWith: unit [
 
-  ^ self = unit
+  ^ self dimension = unit dimension
 ]
 
 { #category : 'testing' }

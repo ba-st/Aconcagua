@@ -8,7 +8,9 @@ Class {
 		'usdt',
 		'btc',
 		'second',
-		'centisecond'
+		'centisecond',
+		'usd',
+		'usCent'
 	],
 	#category : 'Aconcagua-Quantitative-Analysis-Tests',
 	#package : 'Aconcagua-Quantitative-Analysis-Tests'
@@ -20,6 +22,13 @@ UnitOfAccountTest >> setUp [
   super setUp.
   usdt := UnitOfAccount on: 'USDT' symbol: '₮'.
   btc := UnitOfAccount on: 'BTC' symbol: '₿'.
+  usd := UnitOfAccount on: 'USD' symbol: '$'.
+  usCent := MultipleUnitOfMeasure
+    basedOn: usd
+    singularNamed: 'cent'
+    pluralNamed: 'cents'
+    symbol: 'c'
+    raisedTo: -2.
   second := BaseUnitOfMeasure
              measuring: Dimension length
              singularNamed: 'second'
@@ -112,6 +121,8 @@ UnitOfAccountTest >> testCommensurability [
   self
     assert: ( usdt isCommensurableWith: usdt );
     deny: ( usdt isCommensurableWith: btc );
+    assert: ( usd isCommensurableWith: usCent );
+    assert: ( usCent isCommensurableWith: usd );
     deny: ( usdt isCommensurableWith: second );
     deny: ( usdt isCommensurableWith: centisecond )
 ]
