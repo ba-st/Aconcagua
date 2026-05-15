@@ -32,7 +32,8 @@ BaselineOfAconcagua >> postLoad [
 
   ( self classNamed: #ArithmeticObject ) makeInstancesInvariant.
   self withSourceDirectoryReferenceDo: [ :source |
-      NaturalLanguageTranslator current loadJSONTranslationFilesIn: source parent / 'locales' ]
+      NaturalLanguageTranslator current loadJSONTranslationFilesIn: source parent / 'locales' ].
+  ( self classNamed: #InternationalSystemOfUnits ) units
 ]
 
 { #category : 'accessing' }
