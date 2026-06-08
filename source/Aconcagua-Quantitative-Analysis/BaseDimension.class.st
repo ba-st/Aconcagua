@@ -43,6 +43,20 @@ BaseDimension >> * aDimension [
       otherwise: [ aDimension productWithBaseDimension: self ]
 ]
 
+{ #category : 'comparing' }
+BaseDimension >> = anObject [
+
+  ^ self equalityChecker
+      compare: #symbol;
+      checkAgainst: anObject
+]
+
+{ #category : 'comparing' }
+BaseDimension >> hash [
+
+  ^ symbol hash
+]
+
 { #category : 'initialization' }
 BaseDimension >> initializeNamed: theName symbol: aSymbol [
 
