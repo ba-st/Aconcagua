@@ -123,7 +123,7 @@ UnitOfAccountTest >> testCommensurability [
     deny: ( usdt isCommensurableWith: btc );
     assert: ( usd isCommensurableWith: usCent );
     assert: ( usCent isCommensurableWith: usd );
-    assert: ( usd isCommensurableWith: ( UnitOfAccount on: 'USD' symbol: '$' ) );
+    assert: ( usd isCommensurableWith: ( UnitOfAccount on: usd reference symbol: '$' ) );
     deny: ( usdt isCommensurableWith: second );
     deny: ( usdt isCommensurableWith: centisecond )
 ]

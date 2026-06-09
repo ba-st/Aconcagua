@@ -38,20 +38,20 @@ Dimension class >> initializeDimensions [
 
   <ignoreForCoverage>
   BaseDimensions := Namespace new.
-  BaseDimensions bind: #Time to: ( BaseDimension named: 'Time' symbol: 'T' ).
+  BaseDimensions bind: #Time to: ( BasePhysicalDimension named: 'Time' symbol: 'T' ).
   BaseDimensions
     bind: #ThermodynamicTemperature
-    to: ( BaseDimension named: 'Thermodynamic Temperature' symbol: 'Θ' ).
-  BaseDimensions bind: #Length to: ( BaseDimension named: 'Length' symbol: 'L' ).
-  BaseDimensions bind: #Mass to: ( BaseDimension named: 'Mass' symbol: 'M' ).
-  BaseDimensions bind: #ElectricCurrent to: ( BaseDimension named: 'Electric Current' symbol: 'I' ).
+    to: ( BasePhysicalDimension named: 'Thermodynamic Temperature' symbol: 'Θ' ).
+  BaseDimensions bind: #Length to: ( BasePhysicalDimension named: 'Length' symbol: 'L' ).
+  BaseDimensions bind: #Mass to: ( BasePhysicalDimension named: 'Mass' symbol: 'M' ).
+  BaseDimensions bind: #ElectricCurrent to: ( BasePhysicalDimension named: 'Electric Current' symbol: 'I' ).
   BaseDimensions
     bind: #AmountOfSubstance
-    to: ( BaseDimension named: 'Amount of Substance' symbol: 'N' ).
+    to: ( BasePhysicalDimension named: 'Amount of Substance' symbol: 'N' ).
   BaseDimensions
     bind: #LuminousIntensity
-    to: ( BaseDimension named: 'Luminous Intensity' symbol: 'J' ).
-  BaseDimensions bind: #Angle to: ( BaseDimension named: 'Plane Angle' symbol: 'A' )
+    to: ( BasePhysicalDimension named: 'Luminous Intensity' symbol: 'J' ).
+  BaseDimensions bind: #Angle to: ( BasePhysicalDimension named: 'Plane Angle' symbol: 'A' )
 ]
 
 { #category : 'accessing' }

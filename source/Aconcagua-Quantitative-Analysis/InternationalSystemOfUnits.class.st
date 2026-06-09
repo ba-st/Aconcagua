@@ -206,7 +206,7 @@ InternationalSystemOfUnits class >> initializeBit [
   <ignoreForCoverage>
   | bit |
   bit := self
-           addBaseUnitMeasuring: ( BaseDimension named: 'Information' symbol: 'D' )
+           addBaseUnitMeasuring: ( BasePhysicalDimension named: 'Information' symbol: 'D' )
            singularNamed: 'bit'
            pluralNamed: 'bits'
            symbol: 'b'

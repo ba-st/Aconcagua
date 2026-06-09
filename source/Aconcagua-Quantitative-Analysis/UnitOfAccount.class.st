@@ -52,7 +52,7 @@ UnitOfAccount >> initializeOn: aReference symbol: aSymbol [
 
   reference := aReference.
   symbol := aSymbol.
-  dimension := BaseDimension named: reference printString symbol: symbol
+  dimension := AccountDimension on: reference symbol: symbol
 ]
 
 { #category : 'testing' }
