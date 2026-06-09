@@ -11,6 +11,7 @@ Class {
 { #category : 'testing' }
 BaseDimension class >> isAbstract [
 
+  <ignoreForCoverage>
   ^ self = BaseDimension
 ]
 

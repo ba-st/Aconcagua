@@ -54,6 +54,13 @@ Dimension class >> initializeDimensions [
   BaseDimensions bind: #Angle to: ( BasePhysicalDimension named: 'Plane Angle' symbol: 'A' )
 ]
 
+{ #category : 'testing' }
+Dimension class >> isAbstract [
+
+  <ignoreForCoverage>
+  ^ self = Dimension
+]
+
 { #category : 'accessing' }
 Dimension class >> length [
 
