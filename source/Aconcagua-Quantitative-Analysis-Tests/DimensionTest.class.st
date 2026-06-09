@@ -16,8 +16,8 @@ Class {
 DimensionTest >> setUp [
 
   super setUp.
-  length := BaseDimension named: 'Length' symbol: 'L'.
-  time := BaseDimension named: 'Time' symbol: 'T'
+  length := BasePhysicalDimension named: 'Length' symbol: 'L'.
+  time := BasePhysicalDimension named: 'Time' symbol: 'T'
 ]
 
 { #category : 'tests' }
