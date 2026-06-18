@@ -224,6 +224,12 @@ Quantity >> reciprocal [
   ^ 1 / self
 ]
 
+{ #category : 'testing' }
+Quantity >> strictlyPositive [ 
+
+  ^ self numericalValueInCanonicalUnit strictlyPositive
+]
+
 { #category : 'private' }
 Quantity >> subtractionFromQuantity: minuend [
 

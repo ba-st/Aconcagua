@@ -731,6 +731,15 @@ QuantityTest >> testSimplestInterval [
   self assert: interval asArray equals: { oneMeter }
 ]
 
+{ #category : 'tests - testing' }
+QuantityTest >> testStrictlyPositive [
+
+  self
+    deny: ( 0 * meter ) strictlyPositive;
+    assert: ( 2 * meter ) strictlyPositive;
+    deny: ( -2 * meter ) strictlyPositive
+]
+
 { #category : 'tests - arithmetic' }
 QuantityTest >> testSubtraction [
 
