@@ -423,7 +423,10 @@ QuantityTest >> testDivisionResultingInDimensionlessQuantity [
   self
     assert: fourMeters / twoHundredCentimeters equals: 2;
     assert: fourMeters * fourMeters / twoHundredCentimeters equals: 8 * meter;
-    assert: fourMeters / second / ( twoHundredCentimeters / second ) equals: 2
+    assert: fourMeters / second / ( twoHundredCentimeters / second ) equals: 2;
+    assert: fourMeters / fourMeters equals: 1;
+    assert: 1 + ( fourMeters / fourMeters ) equals: 2;
+    assert: 1 + ( fourMeters * ( 1 / 4 / meter ) ) equals: 2
 ]
 
 { #category : 'tests - arithmetic' }

@@ -33,7 +33,7 @@ Quantity class >> with: arithmeticObject basedOn: unit [
     enforce: [ arithmeticObject isDimensionless ]
     because: [ 'Quantity numerical values must be numbers' localized ]
     raising: InstanceCreationFailed.
-
+  unit isDimensionless then: [ ^ arithmeticObject ].
   ^ self new initializeWith: arithmeticObject basedOn: unit
 ]
 
