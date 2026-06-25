@@ -58,6 +58,21 @@ DiscreteInterval >> at: index put: object [
   self shouldNotImplement
 ]
 
+{ #category : 'accessing' }
+DiscreteInterval >> indexOf: anElement startingAt: startIndex ifAbsent: exceptionBlock [
+
+  | index val |
+  ( self rangeIncludes: anElement ) ifFalse: [ ^ exceptionBlock value ].
+  val := anElement - self first / step.
+  index := val isInteger
+             ifTrue: [ val + 1 ]
+             ifFalse: [ ^ exceptionBlock value ].
+
+  ^ ( index between: startIndex and: self size )
+      ifTrue: [ index ]
+      ifFalse: [ exceptionBlock value ]
+]
+
 { #category : 'initialization' }
 DiscreteInterval >> initializeCount [
 
@@ -75,6 +90,19 @@ DiscreteInterval >> initializeFrom: theStart to: theEnd by: aStep [
   end := theEnd.
   step := aStep.
   self initializeCount
+]
+
+{ #category : 'private' }
+DiscreteInterval >> rangeIncludes: object [
+  "Return true if object lies anywhere between the interval bounds.
+	This is a fast O(1) bounds check.
+
+	Beware: because #rangeIncludes: only considers the sign of the step, not its magnitude, it also returns true for values that are not actual elements of the interval.
+	For precise element inclusion with arbitrary step, use #includes:."
+
+  ^ step positive
+      ifTrue: [ object between: start and: end ]
+      ifFalse: [ object between: end and: start ]
 ]
 
 { #category : 'enumerating' }
