@@ -866,7 +866,9 @@ QuantityTest >> testSummation [
   | sum |
   sum := Summation ofAll: { 2 * meter . 300 * centimeter }.
 
-  self assert: sum equals: 5 * meter.
+  self
+    assert: sum equals: 5 * meter;
+    assert: ( sum convertTo: centimeter ) equals: 500 * centimeter.
 
   sum := Summation ofAll: { 2 * meter . -300 * centimeter }.
 

@@ -1,6 +1,12 @@
 Extension { #name : 'ArithmeticFormula' }
 
 { #category : '*Aconcagua-Quantitative-Analysis' }
+ArithmeticFormula >> convertTo: targetUnit [
+
+  ^ self value convertTo: targetUnit
+]
+
+{ #category : '*Aconcagua-Quantitative-Analysis' }
 ArithmeticFormula >> productWithQuantity: multiplier [
 
   ^ self value productWithQuantity: multiplier
