@@ -692,6 +692,26 @@ QuantityTest >> testPrintString [
     assert: ( 50 * centimeter ) printString equals: '50 cm'
 ]
 
+{ #category : 'tests - formulas' }
+QuantityTest >> testProducOfSequenceProducts [
+
+  | firstTerm secondTerm |
+  firstTerm := SequenceProduct ofAll: { 2 * meter . 300 * centimeter }.
+  secondTerm := SequenceProduct ofAll: { 1 * meter . 6 * meter }.
+
+  self assert: firstTerm * secondTerm equals: 36 * meter squared * meter squared
+]
+
+{ #category : 'tests - formulas' }
+QuantityTest >> testProducOfSummations [
+
+  | firstTerm secondTerm |
+  firstTerm := Summation ofAll: { 2 * meter . 300 * centimeter }.
+  secondTerm := Summation ofAll: { 1 * meter . 6 * meter }.
+
+  self assert: firstTerm * secondTerm equals: 35 * meter squared
+]
+
 { #category : 'tests - creation' }
 QuantityTest >> testReciprocal [
 
@@ -818,6 +838,26 @@ QuantityTest >> testSubtractionWithZero [
   self
     assert: oneMeter - 0 equals: oneMeter;
     assert: 0 - oneMeter equals: oneMeter negated
+]
+
+{ #category : 'tests - formulas' }
+QuantityTest >> testSumOfSequenceProducts [
+
+  | firstTerm secondTerm |
+  firstTerm := SequenceProduct ofAll: { 2 * meter . 300 * centimeter }.
+  secondTerm := SequenceProduct ofAll: { 1 * meter . 6 * meter }.
+
+  self assert: firstTerm + secondTerm equals: 12 * meter squared
+]
+
+{ #category : 'tests - formulas' }
+QuantityTest >> testSumOfSummations [
+
+  | firstTerm secondTerm |
+  firstTerm := Summation ofAll: { 2 * meter . 300 * centimeter }.
+  secondTerm := Summation ofAll: { 1 * meter . 6 * meter }.
+
+  self assert: firstTerm + secondTerm equals: 12 * meter
 ]
 
 { #category : 'tests - formulas' }
