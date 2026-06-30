@@ -1,0 +1,9 @@
+RwSimpleProjectLoadComponentV2 {
+  #name : 'Dependent-SUnit-Extensions',
+  #condition : 'sunit',
+  #projectNames : [
+    'Buoy'
+  ],
+  #componentNames : [	],
+  #packageNames : [ ]
+}

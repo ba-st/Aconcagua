@@ -1,0 +1,12 @@
+RwLoadSpecificationV2 {
+  #specName: 'Aconcagua-Dependent-SUnit-Extensions',
+  #projectName : 'Aconcagua',
+  #diskUrl : 'Aconcagua',
+  #projectSpecFile : 'rowan/project.ston',
+  #componentNames : [
+      'Dependent-SUnit-Extensions'
+  ],
+  #customConditionalAttributes : [
+    'sunit'
+  ]
+}
