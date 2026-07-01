@@ -126,7 +126,7 @@ Quantity >> divisionFromQuantity: dividend [
 { #category : 'comparing' }
 Quantity >> hash [
 
-  ^ self equalityHashCombinator combineHashOf: self unit with: self numericalValueInCanonicalUnit
+  ^ self numericalValueInCanonicalUnit hash
 ]
 
 { #category : 'initialization' }
