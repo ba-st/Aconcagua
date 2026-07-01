@@ -201,7 +201,13 @@ Quantity >> productWithPartsPerFractionRatio: number [
 { #category : 'private' }
 Quantity >> productWithQuantity: multiplier [
 
-  ^ self class with: numericalValue * multiplier numericalValue basedOn: multiplier unit * unit
+  | multipliedUnit |
+  multipliedUnit := multiplier unit * unit.
+
+  ^ multipliedUnit isDimensionless
+      then: [ ( multiplier convertTo: unit inverse) numericalValue * numericalValue ]
+      otherwise: [
+        self class with: numericalValue * multiplier numericalValue basedOn: multipliedUnit ]
 ]
 
 { #category : 'private' }

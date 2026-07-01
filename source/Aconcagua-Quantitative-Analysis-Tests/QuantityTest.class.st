@@ -654,6 +654,15 @@ QuantityTest >> testMultiplicationByScalars [
 ]
 
 { #category : 'tests - arithmetic' }
+QuantityTest >> testMultiplicationResultingInDimensionlessQuantity [
+
+  self
+    assert: 2 * meter * ( 1 / 10 * meter inverse ) equals: 1 / 5;
+    assert: ( 2 * meter convertTo: centimeter ) * ( 1 / 10 * meter inverse ) equals: 1 / 5;
+    assert: 200 * centimeter * ( 1 / 10 * meter inverse ) equals: 1 / 5
+]
+
+{ #category : 'tests - arithmetic' }
 QuantityTest >> testMultiplicationWithArithmeticFormulas [
 
   | twoMeters sum product |
