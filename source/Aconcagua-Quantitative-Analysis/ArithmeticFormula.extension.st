@@ -7,6 +7,18 @@ ArithmeticFormula >> convertTo: targetUnit [
 ]
 
 { #category : '*Aconcagua-Quantitative-Analysis' }
+ArithmeticFormula >> numericalValue [
+
+  ^ self value numericalValue
+]
+
+{ #category : '*Aconcagua-Quantitative-Analysis' }
+ArithmeticFormula >> numericalValueInCanonicalUnit [
+
+  ^ self value numericalValueInCanonicalUnit
+]
+
+{ #category : '*Aconcagua-Quantitative-Analysis' }
 ArithmeticFormula >> productWithQuantity: multiplier [
 
   ^ self value productWithQuantity: multiplier
@@ -16,4 +28,10 @@ ArithmeticFormula >> productWithQuantity: multiplier [
 ArithmeticFormula >> productWithUnit: unit [
 
   ^ self value productWithUnit: unit
+]
+
+{ #category : '*Aconcagua-Quantitative-Analysis' }
+ArithmeticFormula >> unit [
+
+  ^ self value unit
 ]

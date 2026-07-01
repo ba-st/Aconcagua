@@ -76,6 +76,18 @@ ArithmeticFormula >> hash [
 ]
 
 { #category : 'testing' }
+ArithmeticFormula >> isA: aClass [
+
+  ^ ( super isA: aClass ) or: [ self value isA: aClass ]
+]
+
+{ #category : 'testing' }
+ArithmeticFormula >> isNumber [
+
+  ^ self value isNumber
+]
+
+{ #category : 'testing' }
 ArithmeticFormula >> isZero [
 
   ^ self value isZero
