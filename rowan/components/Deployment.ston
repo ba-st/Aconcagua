@@ -1,6 +1,5 @@
 RwSimpleProjectLoadComponentV2 {
   #name : 'Deployment',
-  #preloadDoitName : 'scripts/deployment-preload',
   #projectNames : [
     'Buoy',
     'SortFunctions'
@@ -8,6 +7,7 @@ RwSimpleProjectLoadComponentV2 {
   #componentNames : [	],
   #packageNames : [
     'Aconcagua-Arithmetic',
+    'Aconcagua-Arithmetic-GS64-Base-Extensions',
     'Aconcagua-Arithmetic-GS64-Extensions',
     'Aconcagua-Quantitative-Analysis',
     'Aconcagua-Quantitative-Analysis-Extensions',
@@ -18,6 +18,7 @@ RwSimpleProjectLoadComponentV2 {
       'allusers' : {
         #packageNameToPlatformPropertiesMap : {
           'Aconcagua-Arithmetic' : { 'symbolDictName' : 'Aconcagua' },
+          'Aconcagua-Arithmetic-GS64-Base-Extensions' : { 'symbolDictName' : 'Globals' },
           'Aconcagua-Arithmetic-GS64-Extensions' : { 'symbolDictName' : 'Aconcagua' },
           'Aconcagua-Quantitative-Analysis' : { 'symbolDictName' : 'Aconcagua' },
           'Aconcagua-Quantitative-Analysis-Extensions' : { 'symbolDictName' : 'Globals' },
