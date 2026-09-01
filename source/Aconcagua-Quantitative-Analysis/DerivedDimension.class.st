@@ -28,7 +28,7 @@ DerivedDimension class >> composedOfAll: exponentsByDimension [
 { #category : 'private' }
 DerivedDimension class >> dictionaryClass [
 
-  ^ IdentityDictionary
+  ^ Dictionary
 ]
 
 { #category : 'instance creation' }
