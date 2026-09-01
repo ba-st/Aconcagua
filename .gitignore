@@ -1,1 +1,7 @@
 .DS_Store
+
+# Environment variables
+.devcontainer/.env
+
+# Claude Code local settings (per-machine overrides, not shared)
+.claude/settings.local.json
