@@ -240,6 +240,21 @@ UnitOfAccountTest >> testQuantityAddition [
 ]
 
 { #category : 'tests' }
+UnitOfAccountTest >> testQuantityMultiplication [
+
+  | oneBitcoin sixtyThousandUsdt |
+  oneBitcoin := 1 * btc.
+  sixtyThousandUsdt := 60000 * usdt.
+
+  self
+    assert: sixtyThousandUsdt / oneBitcoin * ( 10 * btc ) equals: 600000 * usdt;
+    assert:
+      sixtyThousandUsdt / oneBitcoin
+      * ( 10 * ( UnitOfAccount on: btc reference symbol: btc symbol ) )
+    equals: 600000 * usdt
+]
+
+{ #category : 'tests' }
 UnitOfAccountTest >> testQuantitySubtraction [
 
   | oneThousandUSDT oneHundredUSDT |

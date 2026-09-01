@@ -26,8 +26,8 @@ AccountDimensionTest >> testComparisonOfDerivedDimensions [
   usd := AccountDimension on: 'USD' symbol: '$'.
   btc := AccountDimension on: 'BTC' symbol: '₿'.
   rate := usd / btc.
-  equalRate := ( AccountDimension on: 'USD' symbol: '$' )
-    / ( AccountDimension on: 'BTC' symbol: '₿' ).
+  equalRate := ( AccountDimension on: usd reference symbol: usd symbol )
+               / ( AccountDimension on: btc reference symbol: btc symbol ).
 
   self
     assert: rate equals: equalRate;
@@ -37,21 +37,22 @@ AccountDimensionTest >> testComparisonOfDerivedDimensions [
 ]
 
 { #category : 'tests' }
-AccountDimensionTest >> testProductWithEqualDimension [
-
-  | usd btc |
-  usd := AccountDimension on: 'USD' symbol: '$'.
-  btc := AccountDimension on: 'BTC' symbol: '₿'.
-
-  self
-    assert: ( usd / btc * ( AccountDimension on: 'USD' symbol: '$' ) ) printString
-    equals: '$²₿⁻¹';
-    assert: usd / btc * ( AccountDimension on: 'USD' symbol: '$' )
-    equals: usd * usd / btc
-]
-
-{ #category : 'tests' }
 AccountDimensionTest >> testPrintString [
 
   self assert: ( AccountDimension on: 'USD' symbol: '$' ) printString equals: '$'
+]
+
+{ #category : 'tests' }
+AccountDimensionTest >> testProductWithEqualDimension [
+
+  | usd btc equivalentToUsd |
+  usd := AccountDimension on: 'USD' symbol: '$'.
+  btc := AccountDimension on: 'BTC' symbol: '₿'.
+  equivalentToUsd := AccountDimension on: usd reference symbol: usd symbol.
+
+  self
+    assert: ( usd / btc * equivalentToUsd ) printString equals: '$²₿⁻¹';
+    assert: usd / btc * equivalentToUsd equals: usd * usd / btc;
+    assert: ( usd / equivalentToUsd * btc ) printString equals: '₿';
+    assert: usd / equivalentToUsd * btc equals: btc
 ]
