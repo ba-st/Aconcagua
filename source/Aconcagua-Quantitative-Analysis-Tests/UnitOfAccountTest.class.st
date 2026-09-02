@@ -129,6 +129,24 @@ UnitOfAccountTest >> testCommensurability [
 ]
 
 { #category : 'tests' }
+UnitOfAccountTest >> testCommensurabilityOfDerivedUnitsBuiltFromEqualUnits [
+
+  | rate equalRate |
+  rate := usd / btc.
+  equalRate := ( UnitOfAccount on: 'USD' symbol: '$' ) / ( UnitOfAccount on: 'BTC' symbol: '₿' ).
+
+  self
+    assert: rate equals: equalRate;
+    assert: rate hash equals: equalRate hash;
+    assert: rate dimension equals: equalRate dimension;
+    assert: rate dimension hash equals: equalRate dimension hash;
+    assert: ( rate isCommensurableWith: equalRate );
+    assert: ( equalRate isCommensurableWith: rate );
+    assert: 100 * rate equals: 100 * equalRate;
+    assert: ( 100 * rate ) + ( 100 * equalRate ) equals: 200 * rate
+]
+
+{ #category : 'tests' }
 UnitOfAccountTest >> testComparison [
 
   self
@@ -219,6 +237,21 @@ UnitOfAccountTest >> testQuantityAddition [
   self
     assert: oneThousandUSDT + oneHundredUSDT equals: 1100 * usdt;
     assert: ( oneThousandUSDT + oneHundredUSDT ) printString equals: '1100 ₮'
+]
+
+{ #category : 'tests' }
+UnitOfAccountTest >> testQuantityMultiplication [
+
+  | oneBitcoin sixtyThousandUsdt |
+  oneBitcoin := 1 * btc.
+  sixtyThousandUsdt := 60000 * usdt.
+
+  self
+    assert: sixtyThousandUsdt / oneBitcoin * ( 10 * btc ) equals: 600000 * usdt;
+    assert:
+      sixtyThousandUsdt / oneBitcoin
+      * ( 10 * ( UnitOfAccount on: btc reference symbol: btc symbol ) )
+    equals: 600000 * usdt
 ]
 
 { #category : 'tests' }
