@@ -162,10 +162,10 @@ Quantity >> localized [
 
 { #category : 'printing' }
 Quantity >> localizedWith: aBlock [
-  "The numerical value is formatted following the current locale, configured by aBlock, and separated from the unit's symbol by a no-break space"
+  "The numerical value is formatted following the current locale, configured by aBlock, and separated from the unit's symbol by a no-break space. The pattern can be translated, for locales placing them otherwise"
 
-  ^ ( numericalValue localizedWith: aBlock ) , ( String with: ( Character value: 16rA0 ) )
-    , unit symbol
+  ^ '{1}\u{A0}{2}' localizedWithAll: { numericalValue localizedWith: aBlock .
+      unit symbol }
 ]
 
 { #category : 'arithmetic' }
