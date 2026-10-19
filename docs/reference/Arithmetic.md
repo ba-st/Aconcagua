@@ -18,6 +18,13 @@ is used to perform calculations.
 
 Concrete subclasses provide specific calculations.
 
+`localized` and `localizedWith:` format the formula's value for the current
+locale, as Buoy does for numbers and Aconcagua for quantities:
+
+```smalltalk
+CurrentLocale use: 'en' during: [ (Summation ofAll: #(1000 234)) localized ]. "'1,234'"
+```
+
 ## Summation
 
 A `Summation` is the addition of a finite sequence of numbers or arithmetic objects,

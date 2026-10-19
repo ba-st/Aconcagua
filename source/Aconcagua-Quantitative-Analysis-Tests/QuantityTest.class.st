@@ -587,6 +587,63 @@ QuantityTest >> testLessThanEquals [
     assert: ( 0.1s2 * meter ) <= threeMeters
 ]
 
+{ #category : 'tests - printing' }
+QuantityTest >> testLocalized [
+
+  | usdt |
+  usdt := UnitOfAccount on: 'USDT' symbol: '₮'.
+  CurrentLocale use: 'en' during: [
+      self
+        assert: ( 1234.5s1 * meter ) localized equals: '1,234.5\u{A0}m' unescaped;
+        assert: ( -3 * kilometer ) localized equals: '-3\u{A0}km' unescaped;
+        assert: ( 4680 * centimeter / hour ) localized equals: '4,680\u{A0}cm/h' unescaped;
+        assert: ( 9.8s1 * meter / second squared ) localized equals: '9.8\u{A0}m/s²' unescaped;
+        assert: ( 1000 * usdt ) localized equals: '1,000\u{A0}₮' unescaped
+    ].
+  CurrentLocale
+    use: 'es-AR'
+    during: [ self assert: ( 1234.5s1 * meter ) localized equals: '1.234,5\u{A0}m' unescaped ]
+]
+
+{ #category : 'tests - printing' }
+QuantityTest >> testLocalizedRejectsFloats [
+
+  self
+    should: [ ( 1.5 * meter ) localized ]
+    raise: AssertionFailed
+    withMessageText: 'Floats are not supported: convert them to a ScaledDecimal or a Fraction first'
+]
+
+{ #category : 'tests - printing' }
+QuantityTest >> testLocalizedSeparatesValueAndSymbolWithNoBreakSpace [
+
+  CurrentLocale
+    use: 'en'
+    during: [ self assert: ( ( 1 * meter ) localized at: 2 ) equals: ( Character value: 16rA0 ) ]
+]
+
+{ #category : 'tests - printing' }
+QuantityTest >> testLocalizedWith [
+
+  CurrentLocale use: 'en' during: [
+      self
+        assert: ( 1.5s1 * meter localizedWith: [ :options | options decimalPlaces: 2 ] )
+        equals: '1.50\u{A0}m' unescaped;
+        assert: ( 5 * second localizedWith: [ :options | options alwaysDisplaySign ] )
+        equals: '+5\u{A0}s' unescaped
+    ]
+]
+
+{ #category : 'tests - printing' }
+QuantityTest >> testLocalizedWithArithmeticFormulas [
+
+  CurrentLocale use: 'en' during: [
+      self
+        assert: ( meter * ( Summation ofAll: #( 1000 234 ) ) ) localized
+        equals: '1,234\u{A0}m' unescaped
+    ]
+]
+
 { #category : 'tests - magnitude' }
 QuantityTest >> testMax [
 
@@ -901,3 +958,4 @@ QuantityTest >> testTruncated [
     assert: ( 1 / 2 * meter ) truncated equals: 0 * meter;
     assert: ( 7 / 2 * centimeter ) truncated equals: 3 * centimeter
 ]
+

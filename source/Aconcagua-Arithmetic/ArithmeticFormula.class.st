@@ -93,6 +93,18 @@ ArithmeticFormula >> isZero [
   ^ self value isZero
 ]
 
+{ #category : 'printing' }
+ArithmeticFormula >> localized [
+
+  ^ self value localized
+]
+
+{ #category : 'printing' }
+ArithmeticFormula >> localizedWith: aBlock [
+
+  ^ self value localizedWith: aBlock
+]
+
 { #category : 'testing' }
 ArithmeticFormula >> negative [
 

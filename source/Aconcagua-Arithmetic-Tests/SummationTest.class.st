@@ -198,6 +198,19 @@ SummationTest >> testLessThanEquals [
     assert: 0.1s2 <= sum
 ]
 
+{ #category : 'tests - printing' }
+SummationTest >> testLocalized [
+
+  CurrentLocale use: 'en' during: [
+      self
+        assert: ( Summation ofAll: #( 1000 234 ) ) localized equals: '1,234';
+        assert:
+          ( ( Summation ofAll: { 1 / 3 . 1 / 3 } ) localizedWith: [ :options |
+                  options decimalPlaces: 2 ] )
+        equals: '0.67'
+    ]
+]
+
 { #category : 'tests - magnitude' }
 SummationTest >> testMax [
 
