@@ -86,3 +86,27 @@ are the same. They can be combined with units of measure:
 ```smalltalk
 1000 * usdt / meter squared "1000 ₮/m²"
 ```
+
+### Localizing Quantities
+
+`Quantity>>#localized` formats a quantity for the current locale, using Buoy's
+[number localization](https://github.com/ba-st/Buoy/blob/release-candidate/docs/reference/Internationalization.md#localizing-numbers).
+The numerical value follows the locale's conventions, and a no-break space
+separates it from the unit's symbol, so they stay on the same line.
+`Quantity>>#localizedWith:` does the same, configured by a block that receives
+the number formatter:
+
+```smalltalk
+CurrentLocale use: 'en' during: [ (1234.5s1 * meter) localized ]. "'1,234.5 m'"
+CurrentLocale use: 'es-AR' during: [ (1234.5s1 * meter) localized ]. "'1.234,5 m'"
+(1.5s1 * meter) localizedWith: [ :options | options decimalPlaces: 2 ]. "'1.50 m'"
+```
+
+- The unit is shown with its symbol, not its name.
+- As with numbers, quantities of floats are rejected: convert the value to a
+  scaled decimal or a fraction first.
+- A unit of account is shown like any other unit, with its symbol after the
+  value: `(1000 * usdt) localized` is `'1,000 ₮'` in English. Locale currency
+  formats are not supported.
+
+`printString` doesn't change: it's still `'1234.5s1 m'` in Pharo.

@@ -587,6 +587,66 @@ QuantityTest >> testLessThanEquals [
     assert: ( 0.1s2 * meter ) <= threeMeters
 ]
 
+{ #category : 'tests - printing' }
+QuantityTest >> testLocalized [
+
+  | usdt |
+  usdt := UnitOfAccount on: 'USDT' symbol: '₮'.
+  CurrentLocale use: 'en' during: [
+      self
+        assert: ( 1234.5s1 * meter ) localized equals: ( self withNoBreakSpace: '1,234.5 m' );
+        assert: ( -3 * kilometer ) localized equals: ( self withNoBreakSpace: '-3 km' );
+        assert: ( 4680 * centimeter / hour ) localized
+        equals: ( self withNoBreakSpace: '4,680 cm/h' );
+        assert: ( 9.8s1 * meter / second squared ) localized
+        equals: ( self withNoBreakSpace: '9.8 m/s²' );
+        assert: ( 1000 * usdt ) localized equals: ( self withNoBreakSpace: '1,000 ₮' )
+    ].
+  CurrentLocale
+    use: 'es-AR'
+    during: [
+      self assert: ( 1234.5s1 * meter ) localized equals: ( self withNoBreakSpace: '1.234,5 m' ) ]
+]
+
+{ #category : 'tests - printing' }
+QuantityTest >> testLocalizedRejectsFloats [
+
+  self
+    should: [ ( 1.5 * meter ) localized ]
+    raise: AssertionFailed
+    withMessageText: 'Floats are not supported: convert them to a ScaledDecimal or a Fraction first'
+]
+
+{ #category : 'tests - printing' }
+QuantityTest >> testLocalizedSeparatesValueAndSymbolWithNoBreakSpace [
+
+  CurrentLocale
+    use: 'en'
+    during: [ self assert: ( ( 1 * meter ) localized at: 2 ) equals: ( Character value: 16rA0 ) ]
+]
+
+{ #category : 'tests - printing' }
+QuantityTest >> testLocalizedWith [
+
+  CurrentLocale use: 'en' during: [
+      self
+        assert: ( 1.5s1 * meter localizedWith: [ :options | options decimalPlaces: 2 ] )
+        equals: ( self withNoBreakSpace: '1.50 m' );
+        assert: ( 5 * second localizedWith: [ :options | options alwaysDisplaySign ] )
+        equals: ( self withNoBreakSpace: '+5 s' )
+    ]
+]
+
+{ #category : 'tests - printing' }
+QuantityTest >> testLocalizedWithArithmeticFormulas [
+
+  CurrentLocale use: 'en' during: [
+      self
+        assert: ( meter * ( Summation ofAll: #( 1000 234 ) ) ) localized
+        equals: ( self withNoBreakSpace: '1,234 m' )
+    ]
+]
+
 { #category : 'tests - magnitude' }
 QuantityTest >> testMax [
 
@@ -900,4 +960,10 @@ QuantityTest >> testTruncated [
   self
     assert: ( 1 / 2 * meter ) truncated equals: 0 * meter;
     assert: ( 7 / 2 * centimeter ) truncated equals: 3 * centimeter
+]
+
+{ #category : 'private' }
+QuantityTest >> withNoBreakSpace: aString [
+
+  ^ aString copyReplaceAll: ' ' with: ( String with: ( Character value: 16rA0 ) )
 ]

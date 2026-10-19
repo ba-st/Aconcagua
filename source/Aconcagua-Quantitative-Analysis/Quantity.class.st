@@ -154,6 +154,20 @@ Quantity >> isZero [
   ^ self numericalValueInCanonicalUnit isZero
 ]
 
+{ #category : 'printing' }
+Quantity >> localized [
+
+  ^ self localizedWith: [ :options |  ]
+]
+
+{ #category : 'printing' }
+Quantity >> localizedWith: aBlock [
+  "The numerical value is formatted following the current locale, configured by aBlock, and separated from the unit's symbol by a no-break space"
+
+  ^ ( numericalValue localizedWith: aBlock ) , ( String with: ( Character value: 16rA0 ) )
+    , unit symbol
+]
+
 { #category : 'arithmetic' }
 Quantity >> negated [
 

@@ -215,6 +215,27 @@ TemperatureUnitsTest >> testIsZero [
 ]
 
 { #category : 'tests' }
+TemperatureUnitsTest >> testLocalized [
+
+  | absoluteZero noBreakSpace |
+  absoluteZero := -27315 / 100.
+  noBreakSpace := String with: ( Character value: 16rA0 ).
+  CurrentLocale use: 'en' during: [
+      self
+        assert: ( 25 * degreeCelsius ) localized equals: '25' , noBreakSpace , '°C';
+        assert: ( absoluteZero * degreeCelsius ) localized equals: '-273.15' , noBreakSpace , '°C';
+        assert: ( absoluteZero * degreeCelsius convertTo: kelvin ) localized
+        equals: '0' , noBreakSpace , 'K'
+    ].
+  CurrentLocale
+    use: 'es-AR'
+    during: [
+      self
+        assert: ( absoluteZero * degreeCelsius ) localized
+        equals: '-273,15' , noBreakSpace , '°C' ]
+]
+
+{ #category : 'tests' }
 TemperatureUnitsTest >> testMeltingPointOfIceInCelsius [
 
   | meltingPoint |
