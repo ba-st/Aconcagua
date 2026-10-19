@@ -594,18 +594,15 @@ QuantityTest >> testLocalized [
   usdt := UnitOfAccount on: 'USDT' symbol: '₮'.
   CurrentLocale use: 'en' during: [
       self
-        assert: ( 1234.5s1 * meter ) localized equals: ( self withNoBreakSpace: '1,234.5 m' );
-        assert: ( -3 * kilometer ) localized equals: ( self withNoBreakSpace: '-3 km' );
-        assert: ( 4680 * centimeter / hour ) localized
-        equals: ( self withNoBreakSpace: '4,680 cm/h' );
-        assert: ( 9.8s1 * meter / second squared ) localized
-        equals: ( self withNoBreakSpace: '9.8 m/s²' );
-        assert: ( 1000 * usdt ) localized equals: ( self withNoBreakSpace: '1,000 ₮' )
+        assert: ( 1234.5s1 * meter ) localized equals: '1,234.5\u{A0}m' unescaped;
+        assert: ( -3 * kilometer ) localized equals: '-3\u{A0}km' unescaped;
+        assert: ( 4680 * centimeter / hour ) localized equals: '4,680\u{A0}cm/h' unescaped;
+        assert: ( 9.8s1 * meter / second squared ) localized equals: '9.8\u{A0}m/s²' unescaped;
+        assert: ( 1000 * usdt ) localized equals: '1,000\u{A0}₮' unescaped
     ].
   CurrentLocale
     use: 'es-AR'
-    during: [
-      self assert: ( 1234.5s1 * meter ) localized equals: ( self withNoBreakSpace: '1.234,5 m' ) ]
+    during: [ self assert: ( 1234.5s1 * meter ) localized equals: '1.234,5\u{A0}m' unescaped ]
 ]
 
 { #category : 'tests - printing' }
@@ -631,9 +628,9 @@ QuantityTest >> testLocalizedWith [
   CurrentLocale use: 'en' during: [
       self
         assert: ( 1.5s1 * meter localizedWith: [ :options | options decimalPlaces: 2 ] )
-        equals: ( self withNoBreakSpace: '1.50 m' );
+        equals: '1.50\u{A0}m' unescaped;
         assert: ( 5 * second localizedWith: [ :options | options alwaysDisplaySign ] )
-        equals: ( self withNoBreakSpace: '+5 s' )
+        equals: '+5\u{A0}s' unescaped
     ]
 ]
 
@@ -643,7 +640,7 @@ QuantityTest >> testLocalizedWithArithmeticFormulas [
   CurrentLocale use: 'en' during: [
       self
         assert: ( meter * ( Summation ofAll: #( 1000 234 ) ) ) localized
-        equals: ( self withNoBreakSpace: '1,234 m' )
+        equals: '1,234\u{A0}m' unescaped
     ]
 ]
 
@@ -962,8 +959,3 @@ QuantityTest >> testTruncated [
     assert: ( 7 / 2 * centimeter ) truncated equals: 3 * centimeter
 ]
 
-{ #category : 'private' }
-QuantityTest >> withNoBreakSpace: aString [
-
-  ^ aString copyReplaceAll: ' ' with: ( String with: ( Character value: 16rA0 ) )
-]

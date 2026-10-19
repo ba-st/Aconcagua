@@ -217,22 +217,19 @@ TemperatureUnitsTest >> testIsZero [
 { #category : 'tests' }
 TemperatureUnitsTest >> testLocalized [
 
-  | absoluteZero noBreakSpace |
+  | absoluteZero |
   absoluteZero := -27315 / 100.
-  noBreakSpace := String with: ( Character value: 16rA0 ).
   CurrentLocale use: 'en' during: [
       self
-        assert: ( 25 * degreeCelsius ) localized equals: '25' , noBreakSpace , '°C';
-        assert: ( absoluteZero * degreeCelsius ) localized equals: '-273.15' , noBreakSpace , '°C';
+        assert: ( 25 * degreeCelsius ) localized equals: '25\u{A0}°C' unescaped;
+        assert: ( absoluteZero * degreeCelsius ) localized equals: '-273.15\u{A0}°C' unescaped;
         assert: ( absoluteZero * degreeCelsius convertTo: kelvin ) localized
-        equals: '0' , noBreakSpace , 'K'
+        equals: '0\u{A0}K' unescaped
     ].
   CurrentLocale
     use: 'es-AR'
     during: [
-      self
-        assert: ( absoluteZero * degreeCelsius ) localized
-        equals: '-273,15' , noBreakSpace , '°C' ]
+      self assert: ( absoluteZero * degreeCelsius ) localized equals: '-273,15\u{A0}°C' unescaped ]
 ]
 
 { #category : 'tests' }
