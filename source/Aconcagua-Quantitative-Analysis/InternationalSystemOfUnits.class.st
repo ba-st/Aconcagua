@@ -399,7 +399,10 @@ InternationalSystemOfUnits class >> initializeExtraTimeUnits [
 { #category : 'class initialization' }
 InternationalSystemOfUnits class >> initializeExtraUnits [
   "There are certain non-SI units that are recognized by the International Committee for
-	Weights and Measures as having to be retained for use together with the SI."
+	Weights and Measures as having to be retained for use together with the SI.
+	Each method adds the accepted units for one kind of quantity. Time and mass have SI base units,
+	initialized in initializeTimeUnits and initializeMassUnits, but area and volume are derived from
+	length, so their extra units have no initializeAreaUnits or initializeVolumeUnits counterpart."
 
   <ignoreForCoverage>
   self initializeExtraTimeUnits.
@@ -410,6 +413,9 @@ InternationalSystemOfUnits class >> initializeExtraUnits [
 
 { #category : 'class initialization' }
 InternationalSystemOfUnits class >> initializeExtraVolumeUnits [
+  "The litre is a special name for the cubic decimetre: 1 l = 1 dm³ = 0.001 m³, as defined by the CGPM in 1964.
+	It is not an SI unit but one accepted for use with the SI, so it is defined as an alias of the cubic decimetre.
+	See https://www.nist.gov/pml/owm/si-units-volume"
 
   <ignoreForCoverage>
   Units
