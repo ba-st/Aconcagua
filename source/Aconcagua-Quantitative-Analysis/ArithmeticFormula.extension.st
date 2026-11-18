@@ -7,6 +7,12 @@ ArithmeticFormula >> convertTo: targetUnit [
 ]
 
 { #category : '*Aconcagua-Quantitative-Analysis' }
+ArithmeticFormula >> divisionFromQuantity: dividend [
+
+  ^ self value divisionFromQuantity: dividend
+]
+
+{ #category : '*Aconcagua-Quantitative-Analysis' }
 ArithmeticFormula >> numericalValue [
 
   ^ self value numericalValue

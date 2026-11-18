@@ -444,6 +444,20 @@ QuantityTest >> testDivisionWithArithmeticFormulas [
     assert: fourMeters / second / ( twoMeters / second ) equals: 2
 ]
 
+{ #category : 'tests - arithmetic' }
+QuantityTest >> testDivisionByArithmeticFormulas [
+
+  | fourMeters sum product |
+  sum := Summation ofAll: #( 1 3 ).
+  product := SequenceProduct ofAll: #( 1 2 ).
+  fourMeters := 4 * meter.
+
+  self
+    assert: fourMeters / sum equals: 1 * meter;
+    assert: fourMeters / product equals: 2 * meter;
+    assert: fourMeters / second / product equals: 2 * meter / second
+]
+
 { #category : 'tests - magnitude' }
 QuantityTest >> testGreaterThan [
 
